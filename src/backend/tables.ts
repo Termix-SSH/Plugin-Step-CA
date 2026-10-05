@@ -5,7 +5,7 @@ import {
   refUser,
   text,
   varchar,
-} from "@termix/plugin-sdk/db";
+} from "@termix-ssh/plugin-sdk/db";
 
 /**
  * One issued certificate per user and host. sshCert and privateKey are

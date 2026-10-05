@@ -1,5 +1,5 @@
 import { createClient } from "redis";
-import type { PluginContext } from "@termix/plugin-sdk/backend";
+import type { PluginContext } from "@termix-ssh/plugin-sdk/backend";
 
 export interface CallbackQuery {
   state?: string;

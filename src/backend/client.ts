@@ -1,5 +1,5 @@
 import crypto from "node:crypto";
-import type { PluginFetch } from "@termix/plugin-sdk/backend";
+import type { PluginFetch } from "@termix-ssh/plugin-sdk/backend";
 
 /**
  * A minimal client for smallstep's step-ca SSH user-certificate flow, done

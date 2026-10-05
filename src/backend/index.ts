@@ -1,5 +1,5 @@
 import type { Router } from "express";
-import type { PluginContext } from "@termix/plugin-sdk/backend";
+import type { PluginContext } from "@termix-ssh/plugin-sdk/backend";
 import { certs as certsTable } from "./tables.js";
 import { createCertStore } from "./cert-store.js";
 import { createRuntime } from "./runtime.js";

@@ -1,5 +1,5 @@
 import crypto from "node:crypto";
-import type { PluginFetchInit } from "@termix/plugin-sdk/backend";
+import type { PluginFetchInit } from "@termix-ssh/plugin-sdk/backend";
 
 const CERT_TYPE = "ssh-ed25519-cert-v01@openssh.com";
 

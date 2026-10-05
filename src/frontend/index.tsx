@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import type { TermixApp } from "@termix/plugin-sdk/frontend";
+import type { TermixApp } from "@termix-ssh/plugin-sdk/frontend";
 import { StepCaAuthEditor } from "./StepCaAuthEditor";
 import { StepCaOverlay } from "./StepCaOverlay";
 import { RedirectUriSetting } from "./RedirectUriSetting";

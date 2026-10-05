@@ -1,4 +1,4 @@
-import { useTranslation } from "@termix/plugin-sdk/frontend";
+import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 
 const DOCS_URL =
   "https://smallstep.com/docs/step-ca/provisioners/#oauthoidc-single-sign-on";

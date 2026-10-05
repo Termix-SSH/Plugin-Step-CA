@@ -1,5 +1,5 @@
 import { randomBytes } from "node:crypto";
-import type { PluginContext } from "@termix/plugin-sdk/backend";
+import type { PluginContext } from "@termix-ssh/plugin-sdk/backend";
 import type { CertStore } from "./cert-store.js";
 import type { CallbackQuery, CallbackResult, Runtime } from "./runtime.js";
 import {
