@@ -207,14 +207,6 @@ describe("issuing a certificate", () => {
     });
   });
 
-  it("sends the 2.8 redirect URI while legacyCallback is on", async () => {
-    await startWithCa({ settings: { legacyCallback: true } });
-    const { url } = await startSignIn();
-    expect(url?.searchParams.get("redirect_uri")).toBe(
-      "https://termix.test/host/step-ca-callback",
-    );
-  });
-
   it("tells the terminal when Step CA is not configured", async () => {
     server = await startServer();
     const { socket } = await startSignIn();

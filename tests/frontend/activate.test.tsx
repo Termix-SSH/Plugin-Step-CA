@@ -40,12 +40,9 @@ describe("step-ca activate", () => {
 });
 
 describe("redirectUri", () => {
-  it("names the plugin callback, or the 2.8 one", () => {
-    expect(redirectUri(false, "https://t.example/app/")).toBe(
+  it("names the plugin callback", () => {
+    expect(redirectUri("https://t.example/app/")).toBe(
       "https://t.example/app/plugin-api/step-ca/callback",
-    );
-    expect(redirectUri(true, "https://t.example/")).toBe(
-      "https://t.example/host/step-ca-callback",
     );
   });
 });

@@ -39,10 +39,6 @@
     "redirectUri": {
       "label": "リダイレクトURI",
       "description": "このURLを、OIDCプロビジョナーの背後にあるIDプロバイダーに、許可されたリダイレクトURIとして登録してください。"
-    },
-    "legacyCallback": {
-      "label": "古いリダイレクトURIを使用する",
-      "description": "バージョン2.9以前に使用されていたリダイレクトURIである/host/step-ca-callbackを送信し続けてください。IDプロバイダーが新しいURIを許可したら、この設定を無効にしてください。"
     }
   },
   "plugin": {

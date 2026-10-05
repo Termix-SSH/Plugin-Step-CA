@@ -39,10 +39,6 @@
     "redirectUri": {
       "label": "Uudelleenohjauksen URI",
       "description": "Rekisteröi tämä URL-osoite sallituksi uudelleenohjauksen URI:ksi OIDC-tarjoajan takana olevalle identiteetintarjoajalle."
-    },
-    "legacyCallback": {
-      "label": "Käytä vanhaa uudelleenohjaus-URI:ta",
-      "description": "Lähetä edelleen /host/step-ca-callback, ennen versiota 2.9 käytetty uudelleenohjaus-URI. Poista tämä käytöstä, kun identiteetintarjoajasi sallii uuden."
     }
   },
   "plugin": {

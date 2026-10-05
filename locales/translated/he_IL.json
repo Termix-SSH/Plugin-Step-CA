@@ -39,10 +39,6 @@
     "redirectUri": {
       "label": "כתובת URL להפניה מחדש",
       "description": "רשום כתובת URL זו כ-URI להפניה מחדש מותרת אצל ספק הזהויות שמאחורי ספק ה-OIDC."
-    },
-    "legacyCallback": {
-      "label": "השתמש ב-URI להפניה הישן",
-      "description": "המשך לשלוח את /host/step-ca-callback, URI ההפניה שהיה בשימוש לפני גרסה 2.9. כבה אפשרות זו לאחר שספק הזהויות שלך יאפשר את ה-URI החדש."
     }
   },
   "plugin": {

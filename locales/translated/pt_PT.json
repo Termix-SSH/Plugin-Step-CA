@@ -39,10 +39,6 @@
     "redirectUri": {
       "label": "URI de redireccionamento",
       "description": "Registe este URL como um URI de redireccionamento permitido junto do fornecedor de identidade por trás do provisionador OIDC."
-    },
-    "legacyCallback": {
-      "label": "Utilize o URI de redirecionamento antigo",
-      "description": "Continue a enviar /host/step-ca-callback, o URI de redireccionamento utilizado antes da versão 2.9. Desative-o assim que o seu fornecedor de identidade permitir o novo."
     }
   },
   "plugin": {

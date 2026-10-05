@@ -29,7 +29,7 @@ export function registerRoutes(router: Router, sessions: AuthSessions): void {
    * /plugin-api/step-ca/callback:
    *   get:
    *     summary: OIDC callback for a Step CA sign-in
-   *     description: Public. The redirect URI registered with the identity provider behind the CA's OIDC provisioner. Exchanges the code, has the CA sign the key and tells the terminal to reconnect. The 2.8 URI /host/step-ca-callback redirects here.
+   *     description: Public. The redirect URI registered with the identity provider behind the CA's OIDC provisioner. Exchanges the code, has the CA sign the key and tells the terminal to reconnect.
    *     tags: [Step CA]
    *     parameters:
    *       - name: state

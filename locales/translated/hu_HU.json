@@ -39,10 +39,6 @@
     "redirectUri": {
       "label": "Átirányítási URI",
       "description": "Regisztrálja ezt az URL-címet engedélyezett átirányítási URI-ként az OIDC-kiszolgáló mögötti identitásszolgáltatónál."
-    },
-    "legacyCallback": {
-      "label": "Használja a régi átirányítási URI-t",
-      "description": "Továbbra is küldd a /host/step-ca-callback átirányítási URI-t, amely a 2.9 előtt használt. Kapcsold ki ezt, amint az identitásszolgáltatód engedélyezi az újat."
     }
   },
   "plugin": {

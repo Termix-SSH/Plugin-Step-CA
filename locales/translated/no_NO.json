@@ -39,10 +39,6 @@
     "redirectUri": {
       "label": "Omdirigerings-URI",
       "description": "Registrer denne URL-en som en tillatt omdirigerings-URI hos identitetsleverandøren bak OIDC-klargjøreren."
-    },
-    "legacyCallback": {
-      "label": "Bruk den gamle omdirigerings-URI-en",
-      "description": "Fortsett å sende /host/step-ca-callback, omdirigerings-URI-en som ble brukt før 2.9. Slå av dette når identitetsleverandøren din tillater den nye."
     }
   },
   "plugin": {

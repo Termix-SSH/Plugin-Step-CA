@@ -39,10 +39,6 @@
     "redirectUri": {
       "label": "URI de redirecció",
       "description": "Registra aquesta URL com a URI de redirecció permesa amb el proveïdor d'identitat darrere del proveidor OIDC."
-    },
-    "legacyCallback": {
-      "label": "Utilitza l'URI de redirecció antiga",
-      "description": "Continua enviant /host/step-ca-callback, l'URI de redirecció utilitzat abans de la versió 2.9. Desactiva-ho un cop el proveïdor d'identitat permeti el nou."
     }
   },
   "plugin": {

@@ -16,8 +16,6 @@ import {
   type StepCaTarget,
 } from "./client.js";
 
-/** The redirect URI 2.8 registered with identity providers. */
-export const LEGACY_CALLBACK_PATH = "/host/step-ca-callback";
 export const CALLBACK_PATH = "/plugin-api/step-ca/callback";
 
 const AUTH_TIMEOUT_MS = 5 * 60 * 1000;
@@ -116,11 +114,6 @@ export function createAuthSessions(
       provisioner: provisioner.trim(),
       privateEndpoints: parseHostList(privateEndpoints),
     };
-  }
-
-  async function callbackPath(): Promise<string> {
-    const legacy = await ctx.settings.get<boolean>("legacyCallback");
-    return legacy ? LEGACY_CALLBACK_PATH : CALLBACK_PATH;
   }
 
   function end(session: Session, removeRuntime = true): void {
@@ -262,7 +255,7 @@ export function createAuthSessions(
         );
         const pkce = createPkce();
         const nonce = randomBytes(16).toString("base64url");
-        const redirectUri = `${request.requestOrigin}${await callbackPath()}`;
+        const redirectUri = `${request.requestOrigin}${CALLBACK_PATH}`;
 
         const session: Session = {
           state,

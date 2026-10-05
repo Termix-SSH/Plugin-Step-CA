@@ -39,10 +39,6 @@
     "redirectUri": {
       "label": "Omleidings-URI",
       "description": "Registreer deze URL als een toegestane omleidings-URI bij de identiteitsprovider achter de OIDC-provisioner."
-    },
-    "legacyCallback": {
-      "label": "Gebruik de oude omleidings-URI",
-      "description": "Blijf /host/step-ca-callback verzenden, de omleidings-URI die vóór versie 2.9 werd gebruikt. Schakel dit uit zodra uw identiteitsprovider de nieuwe URI toestaat."
     }
   },
   "plugin": {
