@@ -6,7 +6,7 @@ import { applyCertificateAuth } from "@termix-ssh/plugin-sdk/ssh-certs";
 import type { AuthSessions, SignInSocket } from "./auth-session.js";
 import type { CertStore } from "./cert-store.js";
 
-export const AUTH_TYPE = "stepca";
+const AUTH_TYPE = "stepca";
 
 const REQUIRED_MESSAGE =
   "Step CA authentication required. Please open a Terminal connection to this host first to complete browser-based authentication.";

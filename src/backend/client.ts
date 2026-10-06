@@ -61,7 +61,7 @@ export function normalizeFingerprint(raw: string): string {
   return hex;
 }
 
-export function pemToDer(pem: string): Buffer {
+function pemToDer(pem: string): Buffer {
   const body = pem
     .replace(/-----BEGIN [^-]+-----/g, "")
     .replace(/-----END [^-]+-----/g, "")

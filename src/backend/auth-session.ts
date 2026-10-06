@@ -16,7 +16,7 @@ import {
   type StepCaTarget,
 } from "./client.js";
 
-export const CALLBACK_PATH = "/plugin-api/step-ca/callback";
+const CALLBACK_PATH = "/plugin-api/step-ca/callback";
 
 const AUTH_TIMEOUT_MS = 5 * 60 * 1000;
 const REMOTE_CALLBACK_WAIT_MS = 30_000;
