@@ -10,6 +10,12 @@
   "repository": "https://github.com/Termix-SSH/Plugin-Step-CA",
   "category": "Access & Security",
   "icon": "ShieldCheck",
+  "features": [
+    "Adds the Step CA auth type to hosts",
+    "Sign in with your identity provider in the browser",
+    "Certificates are kept until they expire",
+    "No step binary needed"
+  ],
   "engine": {
     "termix": ">=26.10.0",
     "api": "1"
