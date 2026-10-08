@@ -10,10 +10,6 @@ npm run validate   # check manifest.json
 npm run format     # format the code with Prettier
 ```
 
-## Settings
+## Docs
 
-### Admin
-
-- **CA URL, Root fingerprint and OIDC provisioner name:** leave all three empty to turn Step CA off
-- **Allowed private Step CA hosts:** the CA and, if it is internal, the identity provider. Private hosts not on this list are refused
-- **Redirect URI:** register `<base URL>/plugin-api/step-ca/callback` with your identity provider
+The docs for this plugin are in [docs/](docs/) and are published at https://docs.termix.site/plugins/step-ca. Settings, permissions, services, environment variables and the API reference are made from `manifest.json` and the `@openapi` comments in the code, so keep those up to date instead of writing them by hand. See [writing docs](https://docs.termix.site/develop/docs).

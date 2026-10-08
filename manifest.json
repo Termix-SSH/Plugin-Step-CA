@@ -8,6 +8,7 @@
   },
   "license": "Apache-2.0",
   "repository": "https://github.com/Termix-SSH/Plugin-Step-CA",
+  "docs": "https://docs.termix.site/plugins/step-ca",
   "category": "Access & Security",
   "icon": "ShieldCheck",
   "features": [
@@ -16,9 +17,20 @@
     "Certificates are kept until they expire",
     "No step binary needed"
   ],
+  "env": [
+    {
+      "name": "REDIS_URL",
+      "description": "Redis that several Termix servers share for sign in state. Not needed with one server."
+    },
+    {
+      "name": "TERMIX_STEP_CA_REDIS_PREFIX",
+      "description": "Prefix for the keys it writes in Redis.",
+      "default": "termix:step-ca"
+    }
+  ],
   "engine": {
     "termix": ">=26.10.0",
-    "api": "1"
+    "api": "^1.2"
   },
   "capabilities": [
     "db:own",

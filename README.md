@@ -14,6 +14,8 @@
 
 Step CA lets you connect to hosts with short-lived SSH certificates from a [smallstep step-ca](https://smallstep.com/docs/step-ca/) server, after signing in through its OIDC provisioner.
 
+Read the [docs](https://docs.termix.site/plugins/step-ca) to set it up and use it.
+
 <br />
 
 ## Features
