@@ -176,7 +176,7 @@ export function StepCaOverlay({
       onCancel={close}
       onOpenUrl={() => {
         if (!dialog.authUrl) return;
-        window.open(dialog.authUrl, "_blank");
+        window.open(dialog.authUrl, "_blank", "noopener,noreferrer");
         setDialog((current) =>
           current ? { ...current, stage: "waiting" } : null,
         );

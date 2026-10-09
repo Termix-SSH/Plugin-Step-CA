@@ -95,6 +95,7 @@ describe("StepCaOverlay", () => {
     expect(open).toHaveBeenCalledWith(
       "https://idp.test/authorize?state=req-1",
       "_blank",
+      "noopener,noreferrer",
     );
     expect(screen.getByText("dialog.waiting")).toBeTruthy();
 
