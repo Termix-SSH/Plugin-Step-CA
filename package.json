@@ -1,7 +1,7 @@
 {
   "name": "@termix-plugin/step-ca",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "scripts": {
     "build": "termix-plugin build",
@@ -39,7 +39,8 @@
     "drizzle-orm": "^0.45.2",
     "express": "^5.2.1",
     "react": "^19.2.8",
-    "sonner": "^2.0.8"
+    "sonner": "^2.0.8",
+    "ssh2": "^1.17.0"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,mjs,cjs,json,css,md}": [

@@ -84,7 +84,12 @@ export function createCertStore(ctx: PluginContext, table: Table) {
       }
       const sshCert = await ctx.secrets.unseal(row.sshCert);
       const privateKey = await ctx.secrets.unseal(row.privateKey);
-      if (!sshCert || !privateKey) {
+      // 1.0.0 stored PKCS8 keys that ssh2 cannot read, so those sign in again.
+      if (
+        !sshCert ||
+        !privateKey ||
+        !privateKey.includes("BEGIN OPENSSH PRIVATE KEY")
+      ) {
         await remove(userId, hostId);
         return null;
       }

@@ -253,7 +253,7 @@ describe("the stepca provider", () => {
     expect(credentials.certificate).toMatch(
       /^ssh-ed25519-cert-v01@openssh\.com /,
     );
-    expect(credentials.privateKey).toContain("BEGIN PRIVATE KEY");
+    expect(credentials.privateKey).toContain("BEGIN OPENSSH PRIVATE KEY");
   });
 
   it("forgets an expired certificate", async () => {

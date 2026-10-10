@@ -11,6 +11,7 @@ import {
   normalizeCaUrl,
   normalizeFingerprint,
   parseSshCertificate,
+  toCertificateLine,
 } from "../../src/backend/client.js";
 import { parseHostList } from "../../src/backend/auth-session.js";
 import { CA_URL, createFakeCa, createSshCa, fakeRoot } from "./fake-ca.js";
@@ -55,7 +56,7 @@ describe("step-ca client helpers", () => {
   it("generates an ed25519 key a CA can certify, and reads the cert back", () => {
     const { publicKeyLine, privateKeyPem } = generateSshKeyPair();
     expect(publicKeyLine).toMatch(/^ssh-ed25519 [A-Za-z0-9+/=]+$/);
-    expect(privateKeyPem).toContain("BEGIN PRIVATE KEY");
+    expect(privateKeyPem).toContain("BEGIN OPENSSH PRIVATE KEY");
 
     const cert = createSshCa().sign({
       publicKeyBlob: publicKeyLine.split(" ")[1],
@@ -132,5 +133,22 @@ describe("decodeJwtClaims", () => {
       nonce: "n1",
     });
     expect(decodeJwtClaims("not-a-jwt")).toEqual({});
+  });
+});
+
+describe("toCertificateLine", () => {
+  it("adds the type to the bare base64 step-ca returns", () => {
+    const ca = createSshCa();
+    const line = ca.sign({
+      publicKeyBlob: Buffer.from("key").toString("base64"),
+      keyId: "k",
+      principals: ["alice"],
+      validAfter: 0,
+      validBefore: 1,
+    });
+    const [type, blob] = line.split(" ");
+    expect(toCertificateLine(blob)).toBe(`${type} ${blob}`);
+    expect(toCertificateLine(line)).toBe(line);
+    expect(() => toCertificateLine("bm90IGEgY2VydA==")).toThrow();
   });
 });

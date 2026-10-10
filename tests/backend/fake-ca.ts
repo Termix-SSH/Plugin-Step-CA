@@ -144,13 +144,16 @@ export function createFakeCa(options: FakeCaOptions) {
       const body = JSON.parse(init?.body ?? "{}");
       const now = Math.floor(Date.now() / 1000);
       return json({
-        crt: ca.sign({
-          publicKeyBlob: body.publicKey,
-          keyId: body.keyID,
-          principals: options.principals ?? body.principals,
-          validAfter: now - 60,
-          validBefore: now + 16 * 3600,
-        }),
+        // Real step-ca sends only the base64 part, with no type in front.
+        crt: ca
+          .sign({
+            publicKeyBlob: body.publicKey,
+            keyId: body.keyID,
+            principals: options.principals ?? body.principals,
+            validAfter: now - 60,
+            validBefore: now + 16 * 3600,
+          })
+          .split(" ")[1],
       });
     }
     return new Response("not found", { status: 404 });

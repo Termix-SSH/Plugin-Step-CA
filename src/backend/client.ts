@@ -1,5 +1,8 @@
 import crypto from "node:crypto";
+import ssh2Pkg from "ssh2";
 import type { PluginFetch } from "@termix-ssh/plugin-sdk/backend";
+
+const { utils: ssh2Utils } = ssh2Pkg;
 
 /**
  * A minimal client for smallstep's step-ca SSH user-certificate flow, done
@@ -248,20 +251,14 @@ function sshString(value: Buffer | string): Buffer {
   return Buffer.concat([len, data]);
 }
 
+/** A throwaway ed25519 key pair, the private key in OpenSSH format for ssh2. */
 export function generateSshKeyPair(): {
   publicKeyLine: string;
   privateKeyPem: string;
 } {
-  const { publicKey, privateKey } = crypto.generateKeyPairSync("ed25519");
-  const jwk = publicKey.export({ format: "jwk" }) as { x: string };
-  const raw = Buffer.from(jwk.x, "base64url");
-  const blob = Buffer.concat([sshString("ssh-ed25519"), sshString(raw)]);
-  return {
-    publicKeyLine: `ssh-ed25519 ${blob.toString("base64")}`,
-    privateKeyPem: privateKey
-      .export({ format: "pem", type: "pkcs8" })
-      .toString(),
-  };
+  const pair = ssh2Utils.generateKeyPairSync("ed25519");
+  const [type, blob] = pair.public.trim().split(/\s+/);
+  return { publicKeyLine: `${type} ${blob}`, privateKeyPem: pair.private };
 }
 
 export async function signSshCertificate(
@@ -307,7 +304,24 @@ export async function signSshCertificate(
   }
   const body = (await response.json()) as { crt?: string };
   if (!body.crt) throw new Error("The CA returned no certificate");
-  return body.crt.trim();
+  return toCertificateLine(body.crt);
+}
+
+/**
+ * step-ca returns the certificate as bare base64. Termix and OpenSSH want
+ * the "type base64" line, so the type is read from the blob itself.
+ */
+export function toCertificateLine(crt: string): string {
+  const value = crt.trim();
+  if (/\s/.test(value)) return value;
+  const blob = Buffer.from(value, "base64");
+  if (blob.length < 4) throw new Error("Invalid SSH certificate");
+  const length = blob.readUInt32BE(0);
+  const type = blob.subarray(4, 4 + length).toString("utf8");
+  if (!/^[a-z0-9@.-]+-cert-v01@openssh\.com$/.test(type)) {
+    throw new Error("Invalid SSH certificate");
+  }
+  return `${type} ${value}`;
 }
 
 export interface SshCertificateInfo {
