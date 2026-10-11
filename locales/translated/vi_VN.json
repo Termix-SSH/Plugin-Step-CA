@@ -1,17 +1,17 @@
 {
   "hosts": {
-    "filterAuthStepca": "Bước CA"
+    "filterAuthStepca": "Step CA"
   },
   "editor": {
-    "label": "Bước CA",
-    "description": "Đăng nhập thông qua nhà cung cấp danh tính của bạn và cho phép Step CA cấp chứng chỉ SSH có thời hạn ngắn cho máy chủ này. URL CA, dấu vân tay gốc và trình cung cấp OIDC được quản trị viên thiết lập trong phần Step CA của Cài đặt quản trị.",
+    "label": "Step CA",
+    "description": "Đăng nhập qua nhà cung cấp danh tính của bạn và để Step CA cấp chứng chỉ SSH có thời hạn ngắn cho máy chủ này. URL CA, dấu vân tay gốc và nhà cung cấp OIDC được cấu hình bởi quản trị viên trong Cài đặt, mục Step CA.",
     "docs": "Xem tài liệu"
   },
   "dialog": {
-    "title": "Bước xác thực CA bắt buộc",
-    "description": "Hoàn tất xác thực trên trình duyệt của bạn để tiếp tục. Chứng chỉ sẽ có hiệu lực miễn là CA của bạn cho phép.",
+    "title": "Yêu cầu xác thực Step CA",
+    "description": "Hoàn tất xác thực trong trình duyệt để tiếp tục. Chứng chỉ sẽ có hiệu lực trong khoảng thời gian mà CA của bạn cho phép.",
     "openBrowser": "Mở trình duyệt để xác thực",
-    "waiting": "Đang chờ xác thực trên trình duyệt...",
+    "waiting": "Đang chờ xác thực trong trình duyệt...",
     "authenticating": "Đang xử lý xác thực..."
   },
   "errors": {
@@ -21,24 +21,24 @@
   "settings": {
     "caUrl": {
       "label": "URL CA",
-      "description": "URL HTTPS của CA Smallstep của bạn. Để trống URL CA, dấu vân tay và trình cung cấp để tắt CA Smallstep.",
+      "description": "URL https của smallstep CA của bạn. Để trống URL CA, dấu vân tay và nhà cung cấp để tắt Step CA.",
       "placeholder": "https://ca.internal:9000"
     },
     "fingerprint": {
       "label": "Dấu vân tay gốc (SHA-256)",
-      "description": "Dấu vân tay của chứng chỉ gốc, như được hiển thị bởi bước ca bootstrap."
+      "description": "Dấu vân tay của chứng chỉ gốc, như hiển thị bởi lệnh step ca bootstrap."
     },
     "provisioner": {
-      "label": "Tên trình cung cấp OIDC",
-      "description": "Tên của trình cung cấp OIDC của CA. Sau đó chọn \"Step CA\" làm loại xác thực của máy chủ."
+      "label": "Tên nhà cung cấp OIDC",
+      "description": "Tên của nhà cung cấp OIDC của CA. Sau đó chọn \"Step CA\" làm phương thức xác thực cho máy chủ."
     },
     "privateEndpoints": {
-      "label": "Cho phép máy chủ Step CA riêng tư",
-      "description": "Các máy chủ riêng mà quy trình chứng chỉ CA từng bước có thể liên hệ: chính CA và, nếu là máy chủ nội bộ, nhà cung cấp danh tính của bạn. Phân tách chúng bằng dấu phẩy hoặc xuống dòng."
+      "label": "Máy chủ Step CA riêng được phép",
+      "description": "Các máy chủ riêng mà quy trình chứng chỉ Step CA có thể kết nối: chính CA và, nếu ở mạng nội bộ, nhà cung cấp danh tính của bạn. Tách chúng bằng dấu phẩy hoặc dòng mới."
     },
     "redirectUri": {
       "label": "URI chuyển hướng",
-      "description": "Đăng ký URL này như một URI chuyển hướng được cho phép với nhà cung cấp danh tính đứng sau trình cung cấp OIDC."
+      "description": "Đăng ký URL này như một URI chuyển hướng được phép với nhà cung cấp danh tính phía sau nhà cung cấp OIDC."
     }
   },
   "plugin": {

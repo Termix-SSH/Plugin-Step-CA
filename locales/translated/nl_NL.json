@@ -1,44 +1,44 @@
 {
   "hosts": {
-    "filterAuthStepca": "Stap CA"
+    "filterAuthStepca": "Step CA"
   },
   "editor": {
-    "label": "Stap CA",
-    "description": "Meld u aan via uw identiteitsprovider en laat uw Step CA een kortstondig SSH-certificaat voor deze host uitgeven. De CA-URL, root-fingerprint en OIDC-provisioner worden door een beheerder ingesteld in het Step CA-gedeelte van de beheerdersinstellingen.",
-    "docs": "Documenten bekijken"
+    "label": "Step CA",
+    "description": "Meld u aan via uw identiteitsprovider en laat uw Step CA een tijdelijk SSH-certificaat uitgeven voor deze host. De CA-URL, root-vingerafdruk en OIDC-provisioner worden door een beheerder ingesteld in Instellingen, onder Step CA.",
+    "docs": "Documentatie bekijken"
   },
   "dialog": {
-    "title": "Stap CA-authenticatie vereist",
-    "description": "Voltooi de authenticatie in uw browser om verder te gaan. Het certificaat blijft geldig zolang uw certificeringsinstantie dit toestaat.",
-    "openBrowser": "Open de browser om te authenticeren.",
-    "waiting": "Wachten op authenticatie in de browser...",
-    "authenticating": "Authenticatie wordt verwerkt..."
+    "title": "Step CA-authenticatie vereist",
+    "description": "Voltooi de authenticatie in uw browser om door te gaan. Het certificaat blijft geldig zolang uw CA dit toestaat.",
+    "openBrowser": "Browser openen om te authenticeren",
+    "waiting": "Wachten op authenticatie in browser...",
+    "authenticating": "Authenticatie verwerken..."
   },
   "errors": {
-    "authFailed": "Authenticatie mislukt. Controleer uw inloggegevens en probeer het opnieuw.",
-    "timeout": "De authenticatie is mislukt vanwege een time-out. Probeer het opnieuw."
+    "authFailed": "Authenticatie mislukt. Controleer uw referenties en probeer het opnieuw.",
+    "timeout": "Authenticatie is verlopen. Probeer het opnieuw."
   },
   "settings": {
     "caUrl": {
-      "label": "CA URL",
-      "description": "De https-URL van uw Smallstep CA. Laat de CA-URL, vingerafdruk en provisioner leeg om Step CA uit te schakelen.",
+      "label": "CA-URL",
+      "description": "De https-URL van uw smallstep CA. Laat de CA-URL, vingerafdruk en provisioner leeg om Step CA uit te schakelen.",
       "placeholder": "https://ca.internal:9000"
     },
     "fingerprint": {
       "label": "Root-vingerafdruk (SHA-256)",
-      "description": "De vingerafdruk van het rootcertificaat, zoals weergegeven in stap ca bootstrap."
+      "description": "De vingerafdruk van het rootcertificaat, zoals weergegeven door `step ca bootstrap`."
     },
     "provisioner": {
-      "label": "Naam van de OIDC-leverancier",
-      "description": "De naam van de OIDC-provisioner van de CA. Kies vervolgens \"Step CA\" als authenticatietype voor de host."
+      "label": "Naam van OIDC-provisioner",
+      "description": "De naam van de OIDC-provisioner van de CA. Kies vervolgens \"Step CA\" als authenticatietype voor een host."
     },
     "privateEndpoints": {
-      "label": "Toegestane privé Step CA-hosts",
-      "description": "De private hosts waarmee de Step CA-certificaatstroom contact kan opnemen, zijn: de certificeringsinstantie zelf en, indien intern, uw identiteitsprovider. Scheid deze met komma's of nieuwe regels."
+      "label": "Toegestane privé-Step CA-hosts",
+      "description": "Privé-hosts die de Step CA-certificaatflow mag contacteren: de CA zelf en, indien intern, uw identiteitsprovider. Scheid ze door komma's of nieuwe regels."
     },
     "redirectUri": {
-      "label": "Omleidings-URI",
-      "description": "Registreer deze URL als een toegestane omleidings-URI bij de identiteitsprovider achter de OIDC-provisioner."
+      "label": "Redirect-URI",
+      "description": "Registreer deze URL als toegestane redirect-URI bij de identiteitsprovider achter de OIDC-provisioner."
     }
   },
   "plugin": {

@@ -1,0 +1,47 @@
+{
+  "hosts": {
+    "filterAuthStepca": "Step CA"
+  },
+  "editor": {
+    "label": "Step CA",
+    "description": "Prihláste sa cez svojho poskytovateľa identity a nechajte svoj Step CA vydať krátkodobo platný SSH certifikát pre tento host. URL CA, odtlačok koreňového certifikátu a OIDC provisioner nastavuje správca v Nastaveniach v sekcii Step CA.",
+    "docs": "Zobraziť dokumentáciu"
+  },
+  "dialog": {
+    "title": "Vyžaduje sa autentifikácia cez Step CA",
+    "description": "Dokončite autentifikáciu vo svojom prehliadači a pokračujte. Certifikát zostáva platný tak dlho, ako to umožňuje vaša CA.",
+    "openBrowser": "Otvoriť prehliadač na autentifikáciu",
+    "waiting": "Čaká sa na autentifikáciu v prehliadači...",
+    "authenticating": "Spracováva sa autentifikácia..."
+  },
+  "errors": {
+    "authFailed": "Autentifikácia zlyhala. Skontrolujte svoje prihlasovacie údaje a skúste to znova.",
+    "timeout": "Časový limit autentifikácie vypršal. Skúste to znova."
+  },
+  "settings": {
+    "caUrl": {
+      "label": "URL CA",
+      "description": "HTTPS URL vašej Smallstep CA. Ak chcete vypnúť Step CA, nechajte URL CA, odtlačok a provisioner prázdne.",
+      "placeholder": "https://ca.internal:9000"
+    },
+    "fingerprint": {
+      "label": "Odtlačok koreňového certifikátu (SHA-256)",
+      "description": "Odtlačok koreňového certifikátu, ako ho zobrazuje príkaz step ca bootstrap."
+    },
+    "provisioner": {
+      "label": "Názov OIDC provisionera",
+      "description": "Názov OIDC provisionera vašej CA. Potom vyberte \"Step CA\" ako typ autentifikácie hosta."
+    },
+    "privateEndpoints": {
+      "label": "Povolené súkromné hosty Step CA",
+      "description": "Súkromné hosty, ktorým môže prístupovať tok certifikátov Step CA: samotná CA a prípadne váš interný poskytovateľ identity. Oddelte ich čiarkami alebo novými riadkami."
+    },
+    "redirectUri": {
+      "label": "URI presmerovania",
+      "description": "Zaregistrujte túto URL ako povolené URI presmerovania u poskytovateľa identity za OIDC provisionerom."
+    }
+  },
+  "plugin": {
+    "name": "Step CA"
+  }
+}

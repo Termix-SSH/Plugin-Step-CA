@@ -1,44 +1,44 @@
 {
   "hosts": {
-    "filterAuthStepca": "Pasul CA"
+    "filterAuthStepca": "Step CA"
   },
   "editor": {
-    "label": "Pasul CA",
-    "description": "Conectați-vă prin intermediul furnizorului de identitate și permiteți ca autoritatea de certificare Step CA să emită un certificat SSH de scurtă durată pentru această gazdă. Adresa URL a autorității de certificare, amprenta rădăcină și furnizorul OIDC sunt setate de un administrator în secțiunea Step CA din Setări administrator.",
-    "docs": "Vizualizați documentele"
+    "label": "Step CA",
+    "description": "Autentificați-vă prin furnizorul de identitate și permiteți CA-ului Step CA să emită un certificat SSH cu durată scurtă de viață pentru acest gazdă. URL-ul CA, amprenta rădăcinii și furnizorul OIDC sunt configurate de un administrator în Setări, la secțiunea Step CA.",
+    "docs": "Vizualizează documentația"
   },
   "dialog": {
-    "title": "Pasul Autentificare CA necesară",
-    "description": "Finalizați autentificarea în browser pentru a continua. Certificatul rămâne valabil atât timp cât permite autoritatea de certificare (CA).",
-    "openBrowser": "Deschideți browserul pentru autentificare",
+    "title": "Autentificare Step CA necesară",
+    "description": "Finalizați autentificarea în browser pentru a continua. Certificatul rămâne valabil atâta timp cât permite CA-ul.",
+    "openBrowser": "Deschide browserul pentru autentificare",
     "waiting": "Se așteaptă autentificarea în browser...",
     "authenticating": "Se procesează autentificarea..."
   },
   "errors": {
-    "authFailed": "Autentificarea a eșuat. Verificați acreditările și încercați din nou.",
-    "timeout": "Autentificarea a expirat. Vă rugăm să încercați din nou."
+    "authFailed": "Autentificarea a eșuat. Verificați-vă acreditările și încercați din nou.",
+    "timeout": "Autentificarea a expirat. Încercați din nou."
   },
   "settings": {
     "caUrl": {
-      "label": "URL-ul CA",
-      "description": "URL-ul https al autorității dvs. de certificare Smallstep. Lăsați URL-ul CA, amprenta și aprovizionatorul necompletate pentru a dezactiva Step CA.",
+      "label": "URL CA",
+      "description": "URL-ul https al CA-ului smallstep. Lăsați URL-ul CA, amprenta și furnizorul goale pentru a dezactiva Step CA.",
       "placeholder": "https://ca.internal:9000"
     },
     "fingerprint": {
-      "label": "Amprentă digitală rădăcină (SHA-256)",
-      "description": "Amprenta electronică a certificatului rădăcină, așa cum se arată în pasul ca bootstrap."
+      "label": "Amprentă rădăcină (SHA-256)",
+      "description": "Amprenta certificatului rădăcină, așa cum este afișată de comanda step ca bootstrap."
     },
     "provisioner": {
       "label": "Numele furnizorului OIDC",
-      "description": "Numele furnizorului OIDC al CA. Apoi, alegeți „Step CA” ca tip de autentificare al gazdei."
+      "description": "Numele furnizorului OIDC al CA-ului. Apoi selectați „Step CA” ca tip de autentificare pentru gazdă."
     },
     "privateEndpoints": {
-      "label": "Gazde private permise de Step CA",
-      "description": "Gazde private pe care fluxul de certificate Step CA le poate contacta: CA-ul în sine și, dacă este intern, furnizorul dvs. de identitate. Separați-le prin virgule sau linii noi."
+      "label": "Gazde private Step CA permise",
+      "description": "Gazdele private pe care fluxul de certificare Step CA le poate contacta: însuși CA-ul și, dacă este intern, furnizorul de identitate. Separați-le prin virgule sau linii noi."
     },
     "redirectUri": {
       "label": "URI de redirecționare",
-      "description": "Înregistrați această adresă URL ca URI de redirecționare permisă la furnizorul de identitate din spatele furnizorului OIDC."
+      "description": "Înregistrați acest URL ca URI de redirecționare permis la furnizorul de identitate din spatele furnizorului OIDC."
     }
   },
   "plugin": {

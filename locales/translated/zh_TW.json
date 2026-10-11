@@ -1,44 +1,44 @@
 {
   "hosts": {
-    "filterAuthStepca": "步驟 CA"
+    "filterAuthStepca": "Step CA"
   },
   "editor": {
-    "label": "步驟 CA",
-    "description": "透過您的身分提供者登錄，並讓您的 Step CA 為此主機頒發短期 SSH 憑證。 CA URL、根指紋和 OIDC 配置器由管理員在「管理設定」的 Step CA 部分中設定。",
-    "docs": "檢視文件"
+    "label": "Step CA",
+    "description": "透過您的身分提供者登入，並讓您的 Step CA 為此主機簽發短期 SSH 憑證。CA URL、根指紋與 OIDC 供應器由管理員在「設定」中的「Step CA」區段設定。",
+    "docs": "查看說明文件"
   },
   "dialog": {
-    "title": "步驟 CA 身份驗證是必需的",
-    "description": "請在瀏覽器中完成身份驗證以繼續。憑證的有效期限取決於您的憑證授權單位 (CA) 的許可期限。",
-    "openBrowser": "開啟瀏覽器以進行驗證",
-    "waiting": "正在等待瀏覽器中的驗證…",
-    "authenticating": "正在處理驗證…"
+    "title": "需要 Step CA 驗證",
+    "description": "請在瀏覽器中完成驗證以繼續。憑證的有效期限取決於您的 CA 允許的時間。",
+    "openBrowser": "開啟瀏覽器進行驗證",
+    "waiting": "等待瀏覽器中的驗證...",
+    "authenticating": "正在處理驗證..."
   },
   "errors": {
-    "authFailed": "驗證失敗。請檢查您的憑證並再試一次。",
-    "timeout": "驗證逾時。請再試一次。"
+    "authFailed": "驗證失敗。請檢查您的憑證並重試。",
+    "timeout": "驗證逾時。請重試。"
   },
   "settings": {
     "caUrl": {
       "label": "CA URL",
-      "description": "您的 SmallStep CA 的 HTTPS URL。如果將 CA URL、指紋和配置器留空，則停用 Step CA。",
+      "description": "您的 smallstep CA 的 https URL。若留空 CA URL、指紋與供應器，即可停用 Step CA。",
       "placeholder": "https://ca.internal:9000"
     },
     "fingerprint": {
-      "label": "根指紋（SHA-256）",
-      "description": "根證書指紋，如步驟 ca bootstrap 所示。"
+      "label": "根指紋 (SHA-256)",
+      "description": "根憑證指紋，如 step ca bootstrap 所示。"
     },
     "provisioner": {
-      "label": "OIDC配置器名稱",
-      "description": "CA 的 OIDC 配置器的名稱。然後選擇“步驟 CA”作為主機的身份驗證類型。"
+      "label": "OIDC 供應器名稱",
+      "description": "CA 的 OIDC 供應器名稱。然後將主機的驗證類型設為「Step CA」。"
     },
     "privateEndpoints": {
-      "label": "允許的私有步驟 CA 主機",
-      "description": "步驟 CA 憑證流程中的私人主機可能會聯絡：CA 本身，以及（如果是內部）您的身分提供者。請用逗號或換行符號分隔它們。"
+      "label": "允許的私人 Step CA 主機",
+      "description": "Step CA 憑證流程可連線的私人主機：CA 本身，以及若為內部部署的身分提供者。請以逗號或換行分隔。"
     },
     "redirectUri": {
-      "label": "重定向 URI",
-      "description": "將此 URL 註冊為 OIDC 配置器後面的身分提供者允許的重定向 URI。"
+      "label": "重新導向 URI",
+      "description": "在 OIDC 供應器後方的身分提供者中，將此 URL 註冊為允許的重新導向 URI。"
     }
   },
   "plugin": {

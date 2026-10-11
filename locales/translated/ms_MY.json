@@ -1,0 +1,47 @@
+{
+  "hosts": {
+    "filterAuthStepca": "Step CA"
+  },
+  "editor": {
+    "label": "Step CA",
+    "description": "Log masuk melalui penyedia identiti anda dan biarkan Step CA anda mengeluarkan sijil SSH jangka pendek untuk hos ini. URL CA, cap jari punca dan penyediaan OIDC ditetapkan oleh pentadbir dalam Tetapan, di bawah Step CA.",
+    "docs": "Lihat dokumentasi"
+  },
+  "dialog": {
+    "title": "Pengesahan Step CA Diperlukan",
+    "description": "Lengkapkan pengesahan dalam pelayar web anda untuk meneruskan. Sijil ini kekal sah selama yang dibenarkan oleh CA anda.",
+    "openBrowser": "Buka Pelayar Web untuk Mengesahkan",
+    "waiting": "Menunggu pengesahan dalam pelayar web...",
+    "authenticating": "Memproses pengesahan..."
+  },
+  "errors": {
+    "authFailed": "Pengesahan gagal. Sila semak kelayakan anda dan cuba lagi.",
+    "timeout": "Pengesahan telah tamat masa. Sila cuba lagi."
+  },
+  "settings": {
+    "caUrl": {
+      "label": "URL CA",
+      "description": "URL https untuk CA smallstep anda. Kosongkan URL CA, cap jari dan penyediaan untuk mematikan Step CA.",
+      "placeholder": "https://ca.internal:9000"
+    },
+    "fingerprint": {
+      "label": "Cap jari punca (SHA-256)",
+      "description": "Cap jari sijil punca, seperti yang ditunjukkan oleh step ca bootstrap."
+    },
+    "provisioner": {
+      "label": "Nama penyediaan OIDC",
+      "description": "Nama penyediaan OIDC CA. Kemudian pilih \"Step CA\" sebagai jenis pengesahan hos."
+    },
+    "privateEndpoints": {
+      "label": "Hos Step CA peribadi yang dibenarkan",
+      "description": "Hos peribadi yang boleh dihubungi oleh aliran sijil Step CA: CA itu sendiri dan, jika dalaman, penyedia identiti anda. Pisahkan dengan koma atau baris baru."
+    },
+    "redirectUri": {
+      "label": "URI Pengalihan",
+      "description": "Daftarkan URL ini sebagai URI pengalihan yang dibenarkan dengan penyedia identiti di sebalik penyediaan OIDC."
+    }
+  },
+  "plugin": {
+    "name": "Step CA"
+  }
+}

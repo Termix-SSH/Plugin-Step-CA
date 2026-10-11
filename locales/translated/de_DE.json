@@ -1,44 +1,44 @@
 {
   "hosts": {
-    "filterAuthStepca": "Schritt CA"
+    "filterAuthStepca": "Step CA"
   },
   "editor": {
-    "label": "Schritt CA",
-    "description": "Melden Sie sich über Ihren Identitätsanbieter an und lassen Sie Ihre Step-Zertifizierungsstelle ein kurzlebiges SSH-Zertifikat für diesen Host ausstellen. Die CA-URL, der Root-Fingerabdruck und der OIDC-Provisioner werden von einem Administrator im Step-CA-Bereich der Administratoreinstellungen festgelegt.",
-    "docs": "Dokumentation ansehen"
+    "label": "Step CA",
+    "description": "Melden Sie sich bei Ihrem Identitätsanbieter an und lassen Sie Ihre Step CA ein kurzlebiges SSH-Zertifikat für diesen Host ausstellen. Die CA-URL, der Root-Fingerabdruck und der OIDC-Provisioner werden von einem Administrator in den Einstellungen unter Step CA festgelegt.",
+    "docs": "Dokumentation anzeigen"
   },
   "dialog": {
-    "title": "Schritt CA-Authentifizierung erforderlich",
-    "description": "Schließen Sie die Authentifizierung in Ihrem Browser ab, um fortzufahren. Das Zertifikat bleibt so lange gültig, wie Ihre Zertifizierungsstelle dies zulässt.",
-    "openBrowser": "Browser zum Authentifizieren öffnen",
+    "title": "Step CA-Authentifizierung erforderlich",
+    "description": "Schließen Sie die Authentifizierung in Ihrem Browser ab, um fortzufahren. Das Zertifikat bleibt so lange gültig, wie Ihre CA es zulässt.",
+    "openBrowser": "Browser zur Authentifizierung öffnen",
     "waiting": "Warten auf Authentifizierung im Browser...",
     "authenticating": "Authentifizierung wird verarbeitet..."
   },
   "errors": {
     "authFailed": "Authentifizierung fehlgeschlagen. Bitte überprüfen Sie Ihre Anmeldeinformationen und versuchen Sie es erneut.",
-    "timeout": "Authentifizierung abgelaufen. Bitte versuchen Sie es erneut."
+    "timeout": "Authentifizierung ist abgelaufen. Bitte versuchen Sie es erneut."
   },
   "settings": {
     "caUrl": {
       "label": "CA-URL",
-      "description": "Die HTTPS-URL Ihrer Smallstep-Zertifizierungsstelle. Lassen Sie die Felder für die Zertifizierungsstellen-URL, den Fingerabdruck und den Provisioner leer, um die Step-Zertifizierungsstelle zu deaktivieren.",
+      "description": "Die https-URL Ihrer smallstep CA. Lassen Sie CA-URL, Fingerabdruck und Provisioner leer, um Step CA zu deaktivieren.",
       "placeholder": "https://ca.internal:9000"
     },
     "fingerprint": {
       "label": "Root-Fingerabdruck (SHA-256)",
-      "description": "Der Fingerabdruck des Stammzertifikats, wie er durch den Schritt CA-Bootstrap angezeigt wird."
+      "description": "Der Fingerabdruck des Root-Zertifikats, wie er von step ca bootstrap angezeigt wird."
     },
     "provisioner": {
-      "label": "OIDC-Provisionername",
-      "description": "Der Name des OIDC-Provisioners der Zertifizierungsstelle. Wählen Sie anschließend „Step CA“ als Authentifizierungstyp des Hosts aus."
+      "label": "Name des OIDC-Provisioners",
+      "description": "Der Name des OIDC-Provisioners der CA. Wählen Sie dann \"Step CA\" als Authentifizierungstyp für einen Host."
     },
     "privateEndpoints": {
-      "label": "Zulässige private Step CA-Hosts",
-      "description": "Private Hosts, die vom Step CA-Zertifikatsfluss kontaktiert werden, können Folgendes kontaktieren: die Zertifizierungsstelle selbst und, falls intern, Ihren Identitätsanbieter. Trennen Sie diese durch Kommas oder Zeilenumbrüche."
+      "label": "Erlaubte private Step CA-Hosts",
+      "description": "Private Hosts, die der Step CA-Zertifikatsablauf kontaktieren darf: die CA selbst und, falls intern, Ihr Identitätsanbieter. Trennen Sie diese durch Kommas oder Zeilenumbrüche."
     },
     "redirectUri": {
-      "label": "Umleitungs-URI",
-      "description": "Registrieren Sie diese URL als zulässige Umleitungs-URI beim Identitätsanbieter hinter dem OIDC-Provisioner."
+      "label": "Weiterleitungs-URI",
+      "description": "Registrieren Sie diese URL als erlaubten Weiterleitungs-URI beim Identitätsanbieter hinter dem OIDC-Provisioner."
     }
   },
   "plugin": {

@@ -1,44 +1,44 @@
 {
   "hosts": {
-    "filterAuthStepca": "Pas CA"
+    "filterAuthStepca": "Step CA"
   },
   "editor": {
-    "label": "Pas CA",
-    "description": "Inicieu la sessió a través del vostre proveïdor d'identitat i deixeu que la vostra Step CA emeti un certificat SSH de curta durada per a aquest amfitrió. L'URL de la CA, l'empremta digital arrel i el proveïdor OIDC els defineix un administrador a la secció Step CA de la Configuració de l'administrador.",
-    "docs": "Veure documents"
+    "label": "Step CA",
+    "description": "Inicieu sessió a través del vostre proveïdor d'identitat i permeteu que el vostre Step CA emeti un certificat SSH de curta durada per a aquest host. L'URL de la CA, l'empremta arrel i el proveïdor OIDC es configuren per un administrador a Configuració, sota Step CA.",
+    "docs": "Veure la documentació"
   },
   "dialog": {
-    "title": "Autenticació de CA requerida",
-    "description": "Completeu l'autenticació al navegador per continuar. El certificat continua sent vàlid mentre ho permeti la vostra autoritat de certificació.",
-    "openBrowser": "Obre el navegador per autenticar-te",
+    "title": "Es requereix l'autenticació de Step CA",
+    "description": "Completeu l'autenticació al navegador per continuar. El certificat romandrà vàlid mentre la CA ho permeti.",
+    "openBrowser": "Obrir el navegador per autenticar-se",
     "waiting": "Esperant l'autenticació al navegador...",
     "authenticating": "Processant l'autenticació..."
   },
   "errors": {
-    "authFailed": "L'autenticació ha fallat. Si us plau, comproveu les vostres credencials i torneu-ho a intentar.",
-    "timeout": "S'ha esgotat el temps d'autenticació. Torna-ho a provar."
+    "authFailed": "Ha fallat l'autenticació. Comproveu les vostres credencials i torneu-ho a provar.",
+    "timeout": "S'ha esgotat el temps d'autenticació. Torneu-ho a provar."
   },
   "settings": {
     "caUrl": {
-      "label": "URL de CA",
-      "description": "L'URL https de la vostra CA Smallstep. Deixeu l'URL de la CA, l'empremta digital i el proveïdor buits per desactivar la CA de Step.",
+      "label": "URL de la CA",
+      "description": "L'URL https de la vostra CA smallstep. Deixeu l'URL de la CA, l'empremta i el proveïdor buits per desactivar Step CA.",
       "placeholder": "https://ca.internal:9000"
     },
     "fingerprint": {
-      "label": "Empremta digital arrel (SHA-256)",
-      "description": "L'empremta digital del certificat arrel, tal com es mostra al pas de bootstrap de CA."
+      "label": "Empremta arrel (SHA-256)",
+      "description": "L'empremta del certificat arrel, tal com es mostra amb step ca bootstrap."
     },
     "provisioner": {
       "label": "Nom del proveïdor OIDC",
-      "description": "El nom del proveïdor OIDC de la CA. A continuació, trieu \"Step CA\" com a tipus d'autenticació de l'amfitrió."
+      "description": "El nom del proveïdor OIDC de la CA. A continuació, seleccioneu \"Step CA\" com a tipus d'autenticació d'un host."
     },
     "privateEndpoints": {
-      "label": "Amfitrions privats permesos de Step CA",
-      "description": "Amfitrions privats amb els quals el flux de certificats de la CA de Step pot contactar: la mateixa CA i, si és intern, el vostre proveïdor d'identitat. Separeu-los amb comes o noves línies."
+      "label": "Hosts privats de Step CA permesos",
+      "description": "Hosts privats amb els quals pot contactar el flux de certificats de Step CA: la CA mateixa i, si és intern, el vostre proveïdor d'identitat. Separeu-los amb comes o salts de línia."
     },
     "redirectUri": {
       "label": "URI de redirecció",
-      "description": "Registra aquesta URL com a URI de redirecció permesa amb el proveïdor d'identitat darrere del proveidor OIDC."
+      "description": "Registreu aquesta URL com a URI de redirecció permès amb el proveïdor d'identitat darrere del proveïdor OIDC."
     }
   },
   "plugin": {

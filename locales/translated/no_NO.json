@@ -1,44 +1,44 @@
 {
   "hosts": {
-    "filterAuthStepca": "Trinn CA"
+    "filterAuthStepca": "Step CA"
   },
   "editor": {
-    "label": "Trinn CA",
-    "description": "Logg på via identitetsleverandøren din, og la Step CA utstede et kortvarig SSH-sertifikat for denne verten. CA-URL-en, rotfingeravtrykket og OIDC-provisioneren angis av en administrator i Step CA-delen av administratorinnstillingene.",
-    "docs": "Vis dokumenter"
+    "label": "Step CA",
+    "description": "Logg inn via identitetsleverandøren din, og la Step CA utfärde et kortvarig SSH-sertifikat for denne verten. CA-URL-en, rotfingeraftrykket og OIDC-provisioneren er konfigurert av en administrator under Innstillinger > Step CA.",
+    "docs": "Se dokumentasjon"
   },
   "dialog": {
-    "title": "Trinn CA-autentisering kreves",
-    "description": "Fullfør autentiseringen i nettleseren din for å fortsette. Sertifikatet forblir gyldig så lenge CA-en din tillater det.",
-    "openBrowser": "Åpne nettleseren for å autentisere",
-    "waiting": "Venter på autentisering i nettleseren...",
-    "authenticating": "Behandler autentisering ..."
+    "title": "Step CA-autentisering kreves",
+    "description": "Fullfør autentiseringen i nettleseren din for å fortsette. Sertifikatet er gyldig så lenge CA-en tillater det.",
+    "openBrowser": "Åpne nettleser for autentisering",
+    "waiting": "Venter på autentisering i nettleser...",
+    "authenticating": "Behandler autentisering..."
   },
   "errors": {
-    "authFailed": "Autentiseringen mislyktes. Sjekk legitimasjonen din og prøv på nytt.",
-    "timeout": "Autentiseringen ble tidsavbrutt. Prøv på nytt."
+    "authFailed": "Autentisering mislyktes. Vennligst sjekk legitimasjonen din og prøv igjen.",
+    "timeout": "Autentisering ble tidsavbrutt. Vennligst prøv igjen."
   },
   "settings": {
     "caUrl": {
       "label": "CA-URL",
-      "description": "https-URL-en til din smallstep CA. La CA-URL-en, fingeravtrykket og provisioneren stå tomme for å slå av Step CA.",
+      "description": "HTTPS-URL-en til Smallstep CA-en din. La CA-URL-en, fingeraftrykket og provisioneren stå tomme for å slå av Step CA.",
       "placeholder": "https://ca.internal:9000"
     },
     "fingerprint": {
-      "label": "Rotfingeravtrykk (SHA-256)",
-      "description": "Rotsertifikatets fingeravtrykk, som vist i trinn ca. bootstrap."
+      "label": "Rotfingeraftrykk (SHA-256)",
+      "description": "Fingeraftrykket for rotsertifikatet, slik det vises av kommandoen step ca bootstrap."
     },
     "provisioner": {
-      "label": "OIDC-provisionernavn",
-      "description": "Navnet på CA-ens OIDC-provisioner. Velg deretter «Step CA» som verts autentiseringstype."
+      "label": "Navn på OIDC-provisioner",
+      "description": "Navnet på CA-en sin OIDC-provisioner. Velg deretter «Step CA» som autentiseringstype for verten."
     },
     "privateEndpoints": {
       "label": "Tillatte private Step CA-verter",
-      "description": "Private verter som Step CA-sertifikatflyten kan kontakte: selve CA-en og, hvis intern, identitetsleverandøren din. Skill dem med komma eller nye linjer."
+      "description": "Private verter som Step CA-sertifikatflyten kan kontakte: selve CA-en og, hvis den er intern, identitetsleverandøren din. Skill dem med komma eller linjeskift."
     },
     "redirectUri": {
       "label": "Omdirigerings-URI",
-      "description": "Registrer denne URL-en som en tillatt omdirigerings-URI hos identitetsleverandøren bak OIDC-klargjøreren."
+      "description": "Registrer denne URL-en som en tillatt omdirigerings-URI hos identitetsleverandøren bak OIDC-provisioneren."
     }
   },
   "plugin": {

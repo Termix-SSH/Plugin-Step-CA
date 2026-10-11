@@ -1,44 +1,44 @@
 {
   "hosts": {
-    "filterAuthStepca": "Krok CA"
+    "filterAuthStepca": "Step CA"
   },
   "editor": {
-    "label": "Krok CA",
-    "description": "Zaloguj się za pomocą swojego dostawcy tożsamości i pozwól, aby urząd certyfikacji Step CA wydał tymczasowy certyfikat SSH dla tego hosta. Adres URL urzędu certyfikacji, odcisk palca głównego i dostawca OIDC są ustawiane przez administratora w sekcji Step CA w Ustawieniach administratora.",
+    "label": "Step CA",
+    "description": "Zaloguj się przez swojego dostawcę tożsamości i pozwól, aby Twój Step CA wystawił krótkotrwały certyfikat SSH dla tego hosta. Adres URL CA, odcisk palca korzenia i provisioner OIDC są konfigurowane przez administratora w Ustawieniach, w sekcji Step CA.",
     "docs": "Zobacz dokumentację"
   },
   "dialog": {
-    "title": "Wymagane uwierzytelnienie CA",
-    "description": "Aby kontynuować, dokończ uwierzytelnianie w przeglądarce. Certyfikat pozostaje ważny tak długo, jak pozwala na to Twój urząd certyfikacji.",
-    "openBrowser": "Otwórz przeglądarkę, aby uwierzytelnić",
+    "title": "Wymagane uwierzytelnianie Step CA",
+    "description": "Ukończ uwierzytelnianie w przeglądarce, aby kontynuować. Certyfikat pozostaje ważny tak długo, jak pozwala na to Twój CA.",
+    "openBrowser": "Otwórz przeglądarkę, aby się uwierzytelnić",
     "waiting": "Oczekiwanie na uwierzytelnienie w przeglądarce...",
     "authenticating": "Przetwarzanie uwierzytelniania..."
   },
   "errors": {
-    "authFailed": "Uwierzytelnienie nie powiodło się. Sprawdź poświadczenia i spróbuj ponownie.",
-    "timeout": "Upłynął limit czasu uwierzytelniania. Spróbuj ponownie."
+    "authFailed": "Uwierzytelnianie nie powiodło się. Sprawdź swoje dane logowania i spróbuj ponownie.",
+    "timeout": "Przekroczono limit czasu uwierzytelniania. Spróbuj ponownie."
   },
   "settings": {
     "caUrl": {
       "label": "Adres URL CA",
-      "description": "Adres URL https Twojego urzędu certyfikacji SmallStep. Pozostaw puste pola adresu URL urzędu certyfikacji, odcisku palca i provisionera, aby wyłączyć urząd certyfikacji Step CA.",
+      "description": "Adres URL https Twojego smallstep CA. Pozostaw puste pole adresu URL CA, odcisku palca i provisionera, aby wyłączyć Step CA.",
       "placeholder": "https://ca.internal:9000"
     },
     "fingerprint": {
-      "label": "Odcisk palca głównego (SHA-256)",
-      "description": "Odcisk palca certyfikatu głównego, jak pokazano w kroku ca bootstrap."
+      "label": "Odcisk palca korzenia (SHA-256)",
+      "description": "Odcisk palca certyfikatu korzenia, taki jak pokazany przez polecenie step ca bootstrap."
     },
     "provisioner": {
-      "label": "Nazwa dostawcy OIDC",
-      "description": "Nazwa dostawcy OIDC urzędu certyfikacji. Następnie wybierz „Urząd certyfikacji krok po kroku” jako typ uwierzytelniania hosta."
+      "label": "Nazwa provisionera OIDC",
+      "description": "Nazwa provisionera OIDC CA. Następnie wybierz „Step CA” jako typ uwierzytelniania hosta."
     },
     "privateEndpoints": {
       "label": "Dozwolone prywatne hosty Step CA",
-      "description": "Prywatni hosty, z których przepływ certyfikatów Step CA może się kontaktować: z samym CA oraz, jeśli jest wewnętrzny, z dostawcą tożsamości. Rozdziel je przecinkami lub znakami nowej linii."
+      "description": "Prywatne hosty, z którymi może komunikować się przepływ certyfikatów Step CA: sam CA oraz, jeśli jest wewnętrzny, Twój dostawca tożsamości. Oddziel je przecinkami lub nowymi liniami."
     },
     "redirectUri": {
-      "label": "Przekieruj URI",
-      "description": "Zarejestruj ten adres URL jako dozwolony adres URI przekierowania u dostawcy tożsamości stojącego za programem OIDC."
+      "label": "URI przekierowania",
+      "description": "Zarejestruj ten adres URL jako dozwolony URI przekierowania u dostawcy tożsamości za provisionerem OIDC."
     }
   },
   "plugin": {

@@ -1,44 +1,44 @@
 {
   "hosts": {
-    "filterAuthStepca": "Paso CA"
+    "filterAuthStepca": "Step CA"
   },
   "editor": {
-    "label": "Paso CA",
-    "description": "Inicie sesión a través de su proveedor de identidad y permita que Step CA emita un certificado SSH de corta duración para este host. La URL de la CA, la huella digital raíz y el proveedor OIDC los configura un administrador en la sección Step CA de la configuración de administración.",
+    "label": "Step CA",
+    "description": "Inicia sesión a través de tu proveedor de identidad y permite que tu Step CA emita un certificado SSH de corta duración para este host. La URL de la CA, la huella raíz y el provisionador OIDC se configuran por un administrador en Configuración, bajo Step CA.",
     "docs": "Ver documentación"
   },
   "dialog": {
-    "title": "Se requiere autenticación de CA.",
-    "description": "Para continuar, complete la autenticación en su navegador. El certificado seguirá siendo válido mientras su autoridad de certificación lo permita.",
+    "title": "Se requiere autenticación de Step CA",
+    "description": "Completa la autenticación en tu navegador para continuar. El certificado permanece válido mientras tu CA lo permita.",
     "openBrowser": "Abrir navegador para autenticarse",
     "waiting": "Esperando autenticación en el navegador...",
     "authenticating": "Procesando autenticación..."
   },
   "errors": {
-    "authFailed": "La autenticación falló. Revisa tus credenciales e inténtalo de nuevo.",
-    "timeout": "La autenticación expiró. Inténtalo de nuevo."
+    "authFailed": "La autenticación ha fallado. Comprueba tus credenciales e inténtalo de nuevo.",
+    "timeout": "Se ha agotado el tiempo de espera de la autenticación. Inténtalo de nuevo."
   },
   "settings": {
     "caUrl": {
-      "label": "URL de CA",
-      "description": "La URL HTTPS de su CA de Smallstep. Deje la URL de la CA, la huella digital y el aprovisionador vacíos para desactivar Step CA.",
+      "label": "URL de la CA",
+      "description": "La URL https de tu CA smallstep. Deja la URL de la CA, la huella y el provisionador vacíos para desactivar Step CA.",
       "placeholder": "https://ca.internal:9000"
     },
     "fingerprint": {
-      "label": "Huella digital de la raíz (SHA-256)",
-      "description": "La huella digital del certificado raíz, como se muestra en el paso ca bootstrap."
+      "label": "Huella raíz (SHA-256)",
+      "description": "La huella del certificado raíz, tal como se muestra en step ca bootstrap."
     },
     "provisioner": {
-      "label": "nombre del proveedor OIDC",
-      "description": "Nombre del proveedor OIDC de la CA. A continuación, seleccione \"Step CA\" como tipo de autenticación del host."
+      "label": "Nombre del provisionador OIDC",
+      "description": "El nombre del provisionador OIDC de la CA. Luego selecciona \"Step CA\" como tipo de autenticación del host."
     },
     "privateEndpoints": {
-      "label": "Hosts de CA de paso privado permitidos",
-      "description": "Los hosts privados con los que puede contactar el flujo de certificados de Step CA son: la propia CA y, si es interna, su proveedor de identidad. Sepárelos con comas o saltos de línea."
+      "label": "Hosts privados de Step CA permitidos",
+      "description": "Hosts privados a los que puede conectarse el flujo de certificados de Step CA: la propia CA y, si es interno, tu proveedor de identidad. Sepáralos con comas o saltos de línea."
     },
     "redirectUri": {
       "label": "URI de redirección",
-      "description": "Registre esta URL como una URI de redireccionamiento permitida con el proveedor de identidad que se encuentra detrás del aprovisionador OIDC."
+      "description": "Registra esta URL como una URI de redirección permitida con el proveedor de identidad detrás del provisionador OIDC."
     }
   },
   "plugin": {

@@ -1,0 +1,47 @@
+{
+  "hosts": {
+    "filterAuthStepca": "Step CA"
+  },
+  "editor": {
+    "label": "Step CA",
+    "description": "Prijavite se prek svojega ponudnika identitete in naj vaš Step CA izda kratkotrajno SSH potrdilo za tega gostitelja. URL CA, odtis korena in OIDC ponudnik so nastavljene s strani skrbnika v Nastavitvah, pod razdelkom Step CA.",
+    "docs": "Oglejte si dokumentacijo"
+  },
+  "dialog": {
+    "title": "Zahtevana je avtentikacija Step CA",
+    "description": "Za nadaljevanje dokončajte avtentikacijo v brskalniku. Potrdilo ostane veljavno tako dolgo, kot to dovoli vaša CA.",
+    "openBrowser": "Odpri brskalnik za avtentikacijo",
+    "waiting": "Čakanje na avtentikacijo v brskalniku...",
+    "authenticating": "Obdelava avtentikacije..."
+  },
+  "errors": {
+    "authFailed": "Avtentikacija ni uspela. Preverite svoje poverilnice in poskusite znova.",
+    "timeout": "Čas za avtentikacijo je potekel. Poskusite znova."
+  },
+  "settings": {
+    "caUrl": {
+      "label": "URL CA",
+      "description": "HTTPS URL vaše smallstep CA. Pustite URL CA, odtis in ponudnika prazne, da onemogočite Step CA.",
+      "placeholder": "https://ca.internal:9000"
+    },
+    "fingerprint": {
+      "label": "Odtis korena (SHA-256)",
+      "description": "Odtis korenskega potrdila, kot ga prikaže ukaz step ca bootstrap."
+    },
+    "provisioner": {
+      "label": "Ime OIDC ponudnika",
+      "description": "Ime OIDC ponudnika CA. Nato izberite \"Step CA\" kot vrsto avtentikacije za gostitelja."
+    },
+    "privateEndpoints": {
+      "label": "Dovoljeni zasebni gostitelji Step CA",
+      "description": "Zasebni gostitelji, ki jih lahko kontaktira postopek izdaje potrdil Step CA: sama CA in, če je notranji, vaš ponudnik identitete. Ločite jih z vejicami ali novimi vrsticami."
+    },
+    "redirectUri": {
+      "label": "URI za preusmeritev",
+      "description": "Zabeležite ta URL kot dovoljen URI za preusmeritev pri ponudniku identitete za OIDC ponudnikom."
+    }
+  },
+  "plugin": {
+    "name": "Step CA"
+  }
+}

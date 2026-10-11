@@ -1,0 +1,47 @@
+{
+  "hosts": {
+    "filterAuthStepca": "Step CA"
+  },
+  "editor": {
+    "label": "Step CA",
+    "description": "Logi sisse oma identiteedipakkuja kaudu ja lase oma Step CA-l välja lühiajaline SSH-sertifikaat sellele hostile. CA URL, juure sõrmejälg ja OIDC-provisioner on halduri poolt määratud Seadistustes, jaotises Step CA.",
+    "docs": "Vaata dokumentatsiooni"
+  },
+  "dialog": {
+    "title": "Nõutav on Step CA autentimine",
+    "description": "Jätkamiseks lõpeta autentimine oma brauseris. Sertifikaat kehtib seni, kuni sinu CA seda lubab.",
+    "openBrowser": "Ava brauser autentimiseks",
+    "waiting": "Ootame brauseris autentimist...",
+    "authenticating": "Autentimise töötlemine..."
+  },
+  "errors": {
+    "authFailed": "Autentimine ebaõnnestus. Palun kontrolli oma ligipääsuandmeid ja proovi uuesti.",
+    "timeout": "Autentimise aeg aegus. Palun proovi uuesti."
+  },
+  "settings": {
+    "caUrl": {
+      "label": "CA URL",
+      "description": "Sinu smallstep CA https-URL. Jäta CA URL, sõrmejälg ja provisioner tühjaks, et lülitada Step CA välja.",
+      "placeholder": "https://ca.internal:9000"
+    },
+    "fingerprint": {
+      "label": "Juure sõrmejälg (SHA-256)",
+      "description": "Juuresertifikaadi sõrmejälg, nagu seda kuvab käsk step ca bootstrap."
+    },
+    "provisioner": {
+      "label": "OIDC-provisioneri nimi",
+      "description": "CA OIDC-provisioneri nimi. Seejärel vali hosti autentimistüübiks \"Step CA\"."
+    },
+    "privateEndpoints": {
+      "label": "Lubatud privaatne Step CA hostid",
+      "description": "Privaatsed hostid, mida Step CA sertifikaadi voog võib külastada: CA ise ja, kui sisemine, sinu identiteedipakkuja. Eralda need komadega või uute ridade abil."
+    },
+    "redirectUri": {
+      "label": "Ümbersuunamise URI",
+      "description": "Registreeri see URL lubatud ümbersuunamise URI-na OIDC-provisioneri taga oleva identiteedipakkuja juures."
+    }
+  },
+  "plugin": {
+    "name": "Step CA"
+  }
+}

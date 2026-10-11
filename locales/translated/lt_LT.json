@@ -1,0 +1,47 @@
+{
+  "hosts": {
+    "filterAuthStepca": "Step CA"
+  },
+  "editor": {
+    "label": "Step CA",
+    "description": "Prisijunkite per savo tapatybės teikėją ir leiskite savo Step CA išduoti trumpalaikį SSH sertifikatą šiam kompiuteriui. CA URL, šaknies pirštų antspaudas ir OIDC tiekėjas nustatomi administratoriaus Nustatymuose, skiltyje Step CA.",
+    "docs": "Peržiūrėti dokumentaciją"
+  },
+  "dialog": {
+    "title": "Reikalinga Step CA autentifikacija",
+    "description": "Užbaigite autentifikaciją naršyklėje, kad tęstumėte. Sertifikatas lieka galiojantis tol, kol leidžia jūsų CA.",
+    "openBrowser": "Atidaryti naršyklę autentifikacijai",
+    "waiting": "Laukiama autentifikacijos naršyklėje...",
+    "authenticating": "Apdorojama autentifikacija..."
+  },
+  "errors": {
+    "authFailed": "Autentifikacija nepavyko. Patikrinkite savo prisijungimo duomenis ir bandykite dar kartą.",
+    "timeout": "Autentifikacijos laikas baigėsi. Bandykite dar kartą."
+  },
+  "settings": {
+    "caUrl": {
+      "label": "CA URL",
+      "description": "Jūsų smallstep CA https URL. Palikite CA URL, pirštų antspaudą ir tiekėją tuščius, kad išjungtumėte Step CA.",
+      "placeholder": "https://ca.internal:9000"
+    },
+    "fingerprint": {
+      "label": "Šaknies pirštų antspaudas (SHA-256)",
+      "description": "Šakninio sertifikato pirštų antspaudas, kaip rodoma komandoje step ca bootstrap."
+    },
+    "provisioner": {
+      "label": "OIDC tiekėjo pavadinimas",
+      "description": "CA OIDC tiekėjo pavadinimas. Tada pasirinkite „Step CA“ kaip kompiuterio autentifikacijos tipą."
+    },
+    "privateEndpoints": {
+      "label": "Leidžiami privatus Step CA kompiuteriai",
+      "description": "Privatus kompiuteriai, kuriuos gali kontaktuoti Step CA sertifikato srautas: pats CA ir, jei vidinis, jūsų tapatybės teikėjas. Atskirkite juos kableliais arba naujomis eilutėmis."
+    },
+    "redirectUri": {
+      "label": "Perkrovimo URI",
+      "description": "Užregistruokite šį URL kaip leistiną perkrovimo URI su tapatybės teikėju, esančiu už OIDC tiekėjo."
+    }
+  },
+  "plugin": {
+    "name": "Step CA"
+  }
+}

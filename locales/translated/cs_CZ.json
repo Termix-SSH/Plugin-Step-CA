@@ -1,44 +1,44 @@
 {
   "hosts": {
-    "filterAuthStepca": "Krok CA"
+    "filterAuthStepca": "Step CA"
   },
   "editor": {
-    "label": "Krok CA",
-    "description": "Přihlaste se prostřednictvím svého poskytovatele identity a nechte svou certifikační autoritu Step CA vydat krátkodobý SSH certifikát pro tohoto hostitele. URL certifikační autority CA, kořenový otisk prstu a zřizovatel OIDC nastavuje administrátor v sekci Step CA v Nastavení administrátora.",
-    "docs": "Zobrazit dokumenty"
+    "label": "Step CA",
+    "description": "Přihlaste se prostřednictvím svého poskytovatele identity a nechte svou Step CA vydat krátkodobý SSH certifikát pro tohoto hostitele. URL adresy CA, otisk kořenového certifikátu a OIDC provisioner nastavuje správce v Nastavení v sekci Step CA.",
+    "docs": "Zobrazit dokumentaci"
   },
   "dialog": {
-    "title": "Krok Vyžadováno ověření CA",
-    "description": "Pro pokračování dokončete ověření ve vašem prohlížeči. Certifikát zůstává platný tak dlouho, jak to vaše certifikační autorita dovolí.",
+    "title": "Je vyžadováno ověření přes Step CA",
+    "description": "Pro pokračování dokončete ověření ve svém prohlížeči. Certifikát zůstává platný tak dlouho, jak to umožňuje vaše CA.",
     "openBrowser": "Otevřít prohlížeč pro ověření",
     "waiting": "Čekání na ověření v prohlížeči...",
-    "authenticating": "Zpracování ověřování..."
+    "authenticating": "Zpracování ověření..."
   },
   "errors": {
-    "authFailed": "Ověření se nezdařilo. Zkontrolujte prosím své přihlašovací údaje a zkuste to znovu.",
+    "authFailed": "Ověření selhalo. Zkontrolujte prosím své přihlašovací údaje a zkuste to znovu.",
     "timeout": "Časový limit ověření vypršel. Zkuste to prosím znovu."
   },
   "settings": {
     "caUrl": {
       "label": "URL adresa CA",
-      "description": "URL adresa https vaší certifikační autority SmallStep. Chcete-li Step CA vypnout, ponechte URL adresu certifikační autority, otisk prstu a zřizovatel prázdné.",
+      "description": "HTTPS URL adresa vaší Smallstep CA. Nechte URL adresu CA, otisk a provisioner prázdné, pokud chcete Step CA vypnout.",
       "placeholder": "https://ca.internal:9000"
     },
     "fingerprint": {
-      "label": "Kořenový otisk (SHA-256)",
-      "description": "Otisk kořenového certifikátu, jak je znázorněno v kroku ca bootstrap."
+      "label": "Otisk kořenového certifikátu (SHA-256)",
+      "description": "Otisk kořenového certifikátu, jak je zobrazen příkazem step ca bootstrap."
     },
     "provisioner": {
-      "label": "Název zřizovatele OIDC",
-      "description": "Název zřizovatele OIDC certifikační autority. Poté jako typ ověřování hostitele vyberte „Krok CA“."
+      "label": "Název OIDC provisioneru",
+      "description": "Název OIDC provisioneru vaší CA. Poté vyberte \"Step CA\" jako typ ověření hostitele."
     },
     "privateEndpoints": {
-      "label": "Povolení soukromí hostitelé Step CA",
-      "description": "Soukromí hostitelé, se kterými se může tok certifikátů Step CA spojit: samotná CA a v případě interního přístupu také váš poskytovatel identity. Oddělte je čárkami nebo novými řádky."
+      "label": "Povolené soukromé hostitele Step CA",
+      "description": "Soukromé hostitele, které může proces certifikátu Step CA kontaktovat: samotnou CA a případně váš interní poskytovatel identity. Oddělte je čárkami nebo novými řádky."
     },
     "redirectUri": {
-      "label": "URI přesměrování",
-      "description": "Zaregistrujte tuto URL jako povolený URI pro přesměrování u poskytovatele identity za zřizovatelem OIDC."
+      "label": "URI pro přesměrování",
+      "description": "Zaregistrujte tuto URL adresu jako povolené URI pro přesměrování u poskytovatele identity za OIDC provisionerem."
     }
   },
   "plugin": {

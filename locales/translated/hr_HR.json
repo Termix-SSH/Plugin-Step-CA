@@ -1,0 +1,47 @@
+{
+  "hosts": {
+    "filterAuthStepca": "Step CA"
+  },
+  "editor": {
+    "label": "Step CA",
+    "description": "Prijavite se putem svog davatelja identiteta i dopustite da vaša Step CA izda kratkotrajni SSH certifikat za ovaj host. URL CA, otisak korijena i OIDC pružatelj postavljaju se od strane administratora u Postavkama, pod Step CA.",
+    "docs": "Prikaži dokumentaciju"
+  },
+  "dialog": {
+    "title": "Potrebna je autentifikacija putem Step CA",
+    "description": "Završite autentifikaciju u pregledniku kako biste nastavili. Certifikat ostaje važeći dokle god to dopušta vaša CA.",
+    "openBrowser": "Otvori preglednik za autentifikaciju",
+    "waiting": "Čekanje autentifikacije u pregledniku...",
+    "authenticating": "Obrada autentifikacije..."
+  },
+  "errors": {
+    "authFailed": "Autentifikacija nije uspjela. Provjerite svoje vjerodajnice i pokušajte ponovo.",
+    "timeout": "Vrijeme za autentifikaciju je isteklo. Pokušajte ponovo."
+  },
+  "settings": {
+    "caUrl": {
+      "label": "URL CA",
+      "description": "HTTPS URL vaše smallstep CA. Ostavite URL CA, otisak i pružatelja praznima kako biste isključili Step CA.",
+      "placeholder": "https://ca.internal:9000"
+    },
+    "fingerprint": {
+      "label": "Otisak korijena (SHA-256)",
+      "description": "Otisak korijenskog certifikata, kako ga prikazuje naredba step ca bootstrap."
+    },
+    "provisioner": {
+      "label": "Naziv OIDC pružatelja",
+      "description": "Naziv OIDC pružatelja CA. Zatim odaberite \"Step CA\" kao vrstu autentifikacije za host."
+    },
+    "privateEndpoints": {
+      "label": "Dopušteni privatni Step CA hostovi",
+      "description": "Privatni hostovi s kojima može komunicirati tok Step CA certifikata: sama CA i, ako je interno, vaš davatelj identiteta. Odvojite ih zarezima ili novim redovima."
+    },
+    "redirectUri": {
+      "label": "URI za preusmjeravanje",
+      "description": "Registrirajte ovaj URL kao dopušteni URI za preusmjeravanje kod davatelja identiteta iza OIDC pružatelja."
+    }
+  },
+  "plugin": {
+    "name": "Step CA"
+  }
+}

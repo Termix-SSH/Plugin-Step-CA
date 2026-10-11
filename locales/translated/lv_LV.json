@@ -1,0 +1,47 @@
+{
+  "hosts": {
+    "filterAuthStepca": "Step CA"
+  },
+  "editor": {
+    "label": "Step CA",
+    "description": "Piesakieties caur savu identitātes pakalpojumu sniedzēju un ļaujiet savam Step CA izdot īslaicīgu SSH sertifikātu šim resursdatoram. CA URL, saknes pirkstu nospiedums un OIDC nodrošinātājs tiek iestatīti administratora līmenī Iestatījumos sadaļā Step CA.",
+    "docs": "Apskatīt dokumentāciju"
+  },
+  "dialog": {
+    "title": "Nepieciešama Step CA autentifikācija",
+    "description": "Lai turpinātu, pabeidziet autentifikāciju pārlūkprogrammā. Sertifikāts paliek derīgs tik ilgi, cik to atļauj jūsu CA.",
+    "openBrowser": "Atvērt pārlūkprogrammu autentifikācijai",
+    "waiting": "Gaida autentifikāciju pārlūkprogrammā...",
+    "authenticating": "Apstrādā autentifikāciju..."
+  },
+  "errors": {
+    "authFailed": "Autentifikācija neizdevās. Lūdzu, pārbaudiet savus pieteikšanās datus un mēģiniet vēlreiz.",
+    "timeout": "Autentifikācijas laiks beidzās. Lūdzu, mēģiniet vēlreiz."
+  },
+  "settings": {
+    "caUrl": {
+      "label": "CA URL",
+      "description": "Jūsu smallstep CA https URL. Atstājiet CA URL, pirkstu nospiedumu un nodrošinātāju tukšus, lai atspējotu Step CA.",
+      "placeholder": "https://ca.internal:9000"
+    },
+    "fingerprint": {
+      "label": "Saknes pirkstu nospiedums (SHA-256)",
+      "description": "Saknes sertifikāta pirkstu nospiedums, kā rādīts komandā step ca bootstrap."
+    },
+    "provisioner": {
+      "label": "OIDC nodrošinātāja nosaukums",
+      "description": "CA OIDC nodrošinātāja nosaukums. Tad izvēlieties \"Step CA\" kā resursdatora autentifikācijas veidu."
+    },
+    "privateEndpoints": {
+      "label": "Atļautie privātie Step CA resursdatori",
+      "description": "Privātie resursdatori, kurus var sazināties Step CA sertifikāta plūsma: pats CA un, ja tas ir iekšējs, jūsu identitātes pakalpojumu sniedzējs. Atdaliet tos ar komatiem vai jaunām rindām."
+    },
+    "redirectUri": {
+      "label": "Pāradresācijas URI",
+      "description": "Reģistrējiet šo URL kā atļautu pāradresācijas URI identitātes pakalpojumu sniedzējā aiz OIDC nodrošinātāja."
+    }
+  },
+  "plugin": {
+    "name": "Step CA"
+  }
+}

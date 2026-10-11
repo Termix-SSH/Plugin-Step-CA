@@ -1,44 +1,44 @@
 {
   "hosts": {
-    "filterAuthStepca": "CA lépés"
+    "filterAuthStepca": "Step CA"
   },
   "editor": {
-    "label": "CA lépés",
-    "description": "Jelentkezzen be az identitásszolgáltatóján keresztül, és hagyja, hogy a Step CA rövid életű SSH-tanúsítványt állítson ki ehhez a gazdagéphez. A CA URL-címét, a root ujjlenyomatát és az OIDC-kiszolgálót a rendszergazda állítja be az Adminisztrátori beállítások Step CA szakaszában.",
-    "docs": "Dokumentumok megtekintése"
+    "label": "Step CA",
+    "description": "Jelentkezzen be a hitelesítési szolgáltatóján keresztül, és engedélyezze, hogy a Step CA rövid életű SSH-tanúsítványt adjon ki ehhez a gazdagéphez. A CA URL, a gyökér ujjlenyomat és az OIDC provisioner beállításait egy rendszergazda végezi a Beállítások menüben, a Step CA alatt.",
+    "docs": "Dokumentáció megtekintése"
   },
   "dialog": {
-    "title": "Lépés CA hitelesítés szükséges",
-    "description": "A folytatáshoz fejezze be a hitelesítést a böngészőjében. A tanúsítvány mindaddig érvényes, ameddig a hitelesítésszolgáltató engedélyezi.",
+    "title": "Step CA hitelesítés szükséges",
+    "description": "Fejezze be a hitelesítést a böngészőjében a folytatáshoz. A tanúsítvány addig érvényes, amíg a CA lehetővé teszi.",
     "openBrowser": "Böngésző megnyitása a hitelesítéshez",
-    "waiting": "Várakozás a böngésző hitelesítésére...",
+    "waiting": "Várakozás a böngészős hitelesítésre...",
     "authenticating": "Hitelesítés feldolgozása..."
   },
   "errors": {
-    "authFailed": "Sikertelen hitelesítés. Kérjük, ellenőrizze a hitelesítő adatait, és próbálja újra.",
-    "timeout": "A hitelesítés időtúllépést okozott. Kérjük, próbálja újra."
+    "authFailed": "A hitelesítés sikertelen. Kérjük, ellenőrizze az adatokat, és próbálja újra.",
+    "timeout": "A hitelesítés időtúllépésbe ütközött. Kérjük, próbálja újra."
   },
   "settings": {
     "caUrl": {
-      "label": "Kaliforniai URL",
-      "description": "A smallstep CA https URL-címe. A Step CA kikapcsolásához hagyja üresen a CA URL-címét, az ujjlenyomatot és a kibocsátót.",
+      "label": "CA URL",
+      "description": "A smallstep CA https URL-je. Hagyja üresen a CA URL-t, az ujjlenyomatot és a provisionert a Step CA letiltásához.",
       "placeholder": "https://ca.internal:9000"
     },
     "fingerprint": {
       "label": "Gyökér ujjlenyomat (SHA-256)",
-      "description": "A főtanúsítvány ujjlenyomata, ahogyan azt a ca. lépés bootstrap mutatja."
+      "description": "A gyökértanúsítvány ujjlenyomata, ahogy azt a step ca bootstrap parancs mutatja."
     },
     "provisioner": {
-      "label": "OIDC-szolgáltató neve",
-      "description": "A hitelesítésszolgáltató OIDC-szolgáltatójának neve. Ezután válassza a „Step CA” lehetőséget a gazdagép hitelesítési típusaként."
+      "label": "OIDC provisioner neve",
+      "description": "A CA OIDC provisionerének neve. Ezután válassza a \"Step CA\" lehetőséget a gazdagép hitelesítési típusaként."
     },
     "privateEndpoints": {
-      "label": "Engedélyezett privát Step CA-hosztok",
-      "description": "A Step CA tanúsítványfolyamat által érintett privát hosztok a következőkkel vehetik fel a kapcsolatot: magával a CA-val, és ha belső, akkor az identitásszolgáltatóval. Válaszd el őket vesszővel vagy új sorral."
+      "label": "Engedélyezett privát Step CA gazdagépek",
+      "description": "Privát gazdagépek, amelyeket a Step CA tanúsítványfolyamat elérhet: maga a CA és, ha belső, a hitelesítési szolgáltató. Választhatóan vesszővel vagy új sorokkal elválasztva."
     },
     "redirectUri": {
       "label": "Átirányítási URI",
-      "description": "Regisztrálja ezt az URL-címet engedélyezett átirányítási URI-ként az OIDC-kiszolgáló mögötti identitásszolgáltatónál."
+      "description": "Regisztrálja ezt az URL-t engedélyezett átirányítási URI-ként az OIDC provisioner mögötti hitelesítési szolgáltatóval."
     }
   },
   "plugin": {

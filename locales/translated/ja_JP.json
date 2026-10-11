@@ -1,44 +1,44 @@
 {
   "hosts": {
-    "filterAuthStepca": "ステップCA"
+    "filterAuthStepca": "Step CA"
   },
   "editor": {
-    "label": "ステップCA",
-    "description": "IDプロバイダー経由でサインインし、Step CAにこのホスト用の有効期限の短いSSH証明書を発行させてください。CA URL、ルートフィンガープリント、およびOIDCプロビジョナーは、管理者が管理設定のStep CAセクションで設定します。",
-    "docs": "ドキュメントを見る"
+    "label": "Step CA",
+    "description": "アイデンティティプロバイダー経由でサインインし、Step CA にこのホスト用の短期有効 SSH 証明書の発行を依頼します。CA URL、ルートフィンガープリント、OIDC プロビジョナーは、設定の「Step CA」セクションで管理者によって設定されます。",
+    "docs": "ドキュメントを表示"
   },
   "dialog": {
-    "title": "ステップCA認証が必要です",
-    "description": "続行するには、ブラウザで認証を完了してください。証明書は、認証局が許可する限り有効です。",
+    "title": "Step CA 認証が必要です",
+    "description": "続行するには、ブラウザで認証を完了してください。証明書は、CA が許可する間有効のままです。",
     "openBrowser": "ブラウザを開いて認証",
     "waiting": "ブラウザでの認証を待機中...",
     "authenticating": "認証を処理中..."
   },
   "errors": {
-    "authFailed": "認証に失敗しました。資格情報を確認して再試行してください。",
+    "authFailed": "認証に失敗しました。認証情報を確認して、もう一度お試しください。",
     "timeout": "認証がタイムアウトしました。もう一度お試しください。"
   },
   "settings": {
     "caUrl": {
       "label": "CA URL",
-      "description": "SmallStep CAのHTTPS URL。Step CAを無効にするには、CA URL、フィンガープリント、プロビジョナーを空欄のままにしてください。",
+      "description": "Smallstep CA の HTTPS URL です。Step CA を無効にするには、CA URL、フィンガープリント、プロビジョナーを空白のままにしてください。",
       "placeholder": "https://ca.internal:9000"
     },
     "fingerprint": {
-      "label": "ルートフィンガープリント（SHA-256）",
-      "description": "ステップ ca bootstrap で示されるルート証明書のフィンガープリント。"
+      "label": "ルートフィンガープリント (SHA-256)",
+      "description": "step ca bootstrap で表示されるルート証明書のフィンガープリントです。"
     },
     "provisioner": {
-      "label": "OIDCプロビジョナー名",
-      "description": "CAのOIDCプロビジョナーの名前を指定します。次に、ホストの認証タイプとして「ステップCA」を選択します。"
+      "label": "OIDC プロビジョナー名",
+      "description": "CA の OIDC プロビジョナーの名前です。その後、ホストの認証タイプとして「Step CA」を選択します。"
     },
     "privateEndpoints": {
-      "label": "許可されたプライベートStep CAホスト",
-      "description": "プライベートホストの場合、Step CA証明書フローは、認証局自体、および内部の場合はIDプロバイダーと連絡を取る可能性があります。これらはカンマまたは改行で区切ってください。"
+      "label": "許可されたプライベート Step CA ホスト",
+      "description": "Step CA 証明書フローが接続できるプライベートホストです。CA 自体と、内部にある場合はアイデンティティプロバイダーが含まれます。カンマまたは改行で区切ってください。"
     },
     "redirectUri": {
-      "label": "リダイレクトURI",
-      "description": "このURLを、OIDCプロビジョナーの背後にあるIDプロバイダーに、許可されたリダイレクトURIとして登録してください。"
+      "label": "リダイレクト URI",
+      "description": "この URL を、OIDC プロビジョナーの背後にあるアイデンティティプロバイダーで許可されたリダイレクト URI として登録してください。"
     }
   },
   "plugin": {
