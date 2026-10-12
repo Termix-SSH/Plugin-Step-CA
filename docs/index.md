@@ -11,9 +11,9 @@ No `step` binary is needed on the Termix server.
 
 1. Install the plugin from the Plugins tab.
 2. Open Settings, Step CA:
-   - **CA URL**: your CA's https address.
-   - **Root fingerprint (SHA-256)**: from `step ca bootstrap` or `step certificate fingerprint root_ca.crt`.
-   - **OIDC provisioner name**: the provisioner's name on the CA.
+   - CA URL: your CA's https address.
+   - Root fingerprint (SHA-256): from `step ca bootstrap` or `step certificate fingerprint root_ca.crt`.
+   - OIDC provisioner name: the provisioner's name on the CA.
 3. Copy the Redirect URI, like `https://termix.example.com/plugin-api/step-ca/callback`, and register it with the identity provider behind the provisioner.
 4. If the CA or your identity provider is on your own network, list their hosts under Allowed private Step CA hosts.
 5. Save.
