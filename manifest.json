@@ -9,6 +9,7 @@
   "license": "Apache-2.0",
   "repository": "https://github.com/Termix-SSH/Plugin-Step-CA",
   "docs": "https://docs.termix.site/plugins/step-ca",
+  "video": "https://www.youtube.com/watch?v=Sc4bfeCAYEo",
   "category": "Access & Security",
   "icon": "ShieldCheck",
   "features": [
