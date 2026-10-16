@@ -42,6 +42,7 @@
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "使用 smallstep step-ca 服务器签发的短期 SSH 证书连接主机。"
   }
 }
