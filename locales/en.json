@@ -39,6 +39,10 @@
     "redirectUri": {
       "label": "Redirect URI",
       "description": "Register this URL as an allowed redirect URI with the identity provider behind the OIDC provisioner."
+    },
+    "requireUsernamePrincipal": {
+      "label": "Require the host username in the certificate",
+      "description": "Turn off when your CA puts other principals in the certificate and the server maps them to the login name, for example with AuthorizedPrincipalsFile."
     }
   },
   "plugin": {

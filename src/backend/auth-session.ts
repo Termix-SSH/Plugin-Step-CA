@@ -51,6 +51,7 @@ interface Session {
   codeVerifier: string;
   nonce: string;
   keyPair: { publicKeyLine: string; privateKeyPem: string };
+  requireUsernamePrincipal: boolean;
   timeout: ReturnType<typeof setTimeout>;
   commandPoll: ReturnType<typeof setInterval> | null;
   processing: boolean;
@@ -62,6 +63,7 @@ export interface StepCaSettings {
   fingerprint: string;
   provisioner: string;
   privateEndpoints: string[];
+  requireUsernamePrincipal: boolean;
 }
 
 /** Comma or newline separated hosts, lower-cased. */
@@ -98,12 +100,13 @@ export function createAuthSessions(
   const sessions = new Map<string, Session>();
 
   async function readSettings(): Promise<StepCaSettings | null> {
-    const [caUrl, fingerprint, provisioner, privateEndpoints] =
+    const [caUrl, fingerprint, provisioner, privateEndpoints, requireUser] =
       await Promise.all([
         ctx.settings.get<string>("caUrl"),
         ctx.settings.get<string>("fingerprint"),
         ctx.settings.get<string>("provisioner"),
         ctx.settings.get<string>("privateEndpoints"),
+        ctx.settings.get<boolean>("requireUsernamePrincipal"),
       ]);
     if (!caUrl?.trim() || !fingerprint?.trim() || !provisioner?.trim()) {
       return null;
@@ -113,6 +116,7 @@ export function createAuthSessions(
       fingerprint: fingerprint.trim(),
       provisioner: provisioner.trim(),
       privateEndpoints: parseHostList(privateEndpoints),
+      requireUsernamePrincipal: requireUser !== false,
     };
   }
 
@@ -177,7 +181,12 @@ export function createAuthSessions(
       if (info.publicKeyLine !== session.keyPair.publicKeyLine) {
         throw new Error("The CA returned a certificate for a different key");
       }
-      if (!info.principals.includes(session.username)) {
+      // A CA that maps principals itself (AuthorizedPrincipalsFile) can leave
+      // the login name out; sshd still decides.
+      if (
+        session.requireUsernamePrincipal &&
+        !info.principals.includes(session.username)
+      ) {
         throw new Error(
           "The CA certificate does not include the host username",
         );
@@ -272,6 +281,7 @@ export function createAuthSessions(
           codeVerifier: pkce.verifier,
           nonce,
           keyPair: generateSshKeyPair(),
+          requireUsernamePrincipal: settings.requireUsernamePrincipal,
           processing: false,
           completed: false,
           commandPoll: null,
