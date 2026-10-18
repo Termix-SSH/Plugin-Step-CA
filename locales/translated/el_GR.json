@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "URI Ανακατεύθυνσης",
       "description": "Καταχωρίστε αυτό το URL ως επιτρεπόμενο URI ανακατεύθυνσης στον πάροχο ταυτότητας πίσω από τον OIDC provisioner."
+    },
+    "requireUsernamePrincipal": {
+      "label": "Απαιτείται το όνομα χρήστη του host στο πιστοποιητικό",
+      "description": "Απενεργοποιήστε όταν η CA σας τοποθετεί άλλες αρχές στο πιστοποιητικό και ο διακομιστής τις αντιστοιχεί στο όνομα σύνδεσης, για παράδειγμα με το AuthorizedPrincipalsFile."
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "Συνδεθείτε σε hosts με SSH πιστοποιητικά μικρής διάρκειας ζωής από έναν διακομιστή step-ca της Smallstep."
   }
 }

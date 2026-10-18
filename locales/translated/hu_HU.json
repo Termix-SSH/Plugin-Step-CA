@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "Átirányítási URI",
       "description": "Regisztrálja ezt az URL-t engedélyezett átirányítási URI-ként az OIDC provisioner mögötti hitelesítési szolgáltatóval."
+    },
+    "requireUsernamePrincipal": {
+      "label": "A tanúsítványban szereplő hoszt felhasználónév megkövetelése",
+      "description": "Kapcsold ki, ha a CA más elveket helyez a tanúsítványba, és a szerver ezeket képezi le a bejelentkezési névre, például az AuthorizedPrincipalsFile segítségével."
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "Csatlakozz hoszthoz rövid élettartamú SSH tanúsítványokkal egy smallstep step-ca szerverről."
   }
 }

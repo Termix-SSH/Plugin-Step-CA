@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "Yönlendirme URI'si",
       "description": "Bu URL'yi, OIDC sağlayıcısının arkasındaki kimlik sağlayıcısında izin verilen bir yönlendirme URI'si olarak kaydedin."
+    },
+    "requireUsernamePrincipal": {
+      "label": "Sertifika içinde ana bilgisayar kullanıcı adının zorunlu olması",
+      "description": "CA'nız sertifika içine diğer ilkeleri yerleştirip sunucunun bunları giriş adıyla eşleştirdiği durumlarda (örneğin AuthorizedPrincipalsFile ile) kapatın."
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "Küçük bir Smallstep step-ca sunucusundan kısa ömürlü SSH sertifikaları kullanarak ana bilgisayarlara bağlanın."
   }
 }

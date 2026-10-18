@@ -194,6 +194,19 @@ describe("issuing a certificate", () => {
     });
   });
 
+  it("accepts other principals when the admin turned the check off", async () => {
+    await startWithCa({
+      principals: ["ops-admins"],
+      settings: { requireUsernamePrincipal: false },
+    });
+    const { socket, state } = await startSignIn();
+    await server!.get(`/callback?state=${state}&code=abc`);
+    expect(socket.sent.at(-1)).toMatchObject({
+      type: "stepca_completed",
+      requestId: state,
+    });
+  });
+
   it("passes an identity provider error through", async () => {
     await startWithCa();
     const { socket, state } = await startSignIn();

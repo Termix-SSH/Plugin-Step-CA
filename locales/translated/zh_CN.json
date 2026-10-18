@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "重定向 URI",
       "description": "将此 URL 注册为 OIDC 供应器背后身份提供商允许的重定向 URI。"
+    },
+    "requireUsernamePrincipal": {
+      "label": "要求证书中包含主机用户名",
+      "description": "如果您的 CA 在证书中放置了其他主体，并且服务器将它们映射到登录名（例如使用 AuthorizedPrincipalsFile），请关闭此选项。"
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "使用 smallstep step-ca 服务器签发的短期 SSH 证书连接主机。"
   }
 }

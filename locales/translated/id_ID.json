@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "URI Pengalihan",
       "description": "Daftarkan URL ini sebagai URI pengalihan yang diizinkan dengan penyedia identitas di balik provisioner OIDC."
+    },
+    "requireUsernamePrincipal": {
+      "label": "Wajibkan nama pengguna host dalam sertifikat",
+      "description": "Matikan jika CA Anda menempatkan principal lain dalam sertifikat dan server memetakannya ke nama login, misalnya dengan AuthorizedPrincipalsFile."
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "Sambungkan ke host dengan sertifikat SSH berumur pendek dari server step-ca Smallstep."
   }
 }

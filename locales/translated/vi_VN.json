@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "URI chuyển hướng",
       "description": "Đăng ký URL này như một URI chuyển hướng được phép với nhà cung cấp danh tính phía sau nhà cung cấp OIDC."
+    },
+    "requireUsernamePrincipal": {
+      "label": "Yêu cầu tên người dùng của host trong chứng chỉ",
+      "description": "Tắt tùy chọn này khi CA của bạn đưa các principal khác vào chứng chỉ và server ánh xạ chúng thành tên đăng nhập, ví dụ: với AuthorizedPrincipalsFile."
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "Kết nối đến các host bằng chứng chỉ SSH thời gian ngắn từ máy chủ step-ca của Smallstep."
   }
 }

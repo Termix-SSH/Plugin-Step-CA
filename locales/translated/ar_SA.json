@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "عنوان URI لإعادة التوجيه",
       "description": "سجل هذا العنوان كـ URI لإعادة التوجيه المسموح به مع مزود الهوية الموجود خلف مزود OIDC."
+    },
+    "requireUsernamePrincipal": {
+      "label": "تطلب اسم مستخدم المضيف في الشهادة",
+      "description": "قم بإيقاف التشغيل عندما تضع سلطتك المصدرة (CA) جهات أخرى في الشهادة ويقوم الخادم بتعيينها إلى اسم تسجيل الدخول، على سبيل المثال باستخدام AuthorizedPrincipalsFile."
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "الاتصال بالمضيفين باستخدام شهادات SSH قصيرة الأجل من خادم step-ca الخاص بـ Smallstep."
   }
 }

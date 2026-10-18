@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "URI de redirecționare",
       "description": "Înregistrați acest URL ca URI de redirecționare permis la furnizorul de identitate din spatele furnizorului OIDC."
+    },
+    "requireUsernamePrincipal": {
+      "label": "Cereți ca numele de utilizator al gazdei să fie în certificat",
+      "description": "Dezactivați atunci când CA-ul dumneavoastră include alți principal în certificat, iar serverul îi mapază la numele de autentificare, de exemplu cu AuthorizedPrincipalsFile."
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "Conectați-vă la gazde cu certificate SSH cu durată de viață scurtă de la un server step-ca Smallstep."
   }
 }

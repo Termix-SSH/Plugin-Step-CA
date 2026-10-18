@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "Pāradresācijas URI",
       "description": "Reģistrējiet šo URL kā atļautu pāradresācijas URI identitātes pakalpojumu sniedzējā aiz OIDC nodrošinātāja."
+    },
+    "requireUsernamePrincipal": {
+      "label": "Prasīt, lai sertifikātā būtu norādīts resursdatora lietotājvārds",
+      "description": "Izslēdziet, ja jūsu CA sertifikātā iekļauj citus principāļus un serveris tos atbilstina pieteikšanās vārdam, piemēram, izmantojot AuthorizedPrincipalsFile."
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "Savienojieties ar resursdatoriem, izmantojot īslaicīgus SSH sertifikātus no Smallstep step-ca servera."
   }
 }

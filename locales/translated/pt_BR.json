@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "URI de redirecionamento",
       "description": "Registre esta URL como uma URI de redirecionamento permitida no provedor de identidade por trás do provisionador OIDC."
+    },
+    "requireUsernamePrincipal": {
+      "label": "Exigir o nome de usuário do host no certificado",
+      "description": "Desative quando sua CA incluir outros princípios no certificado e o servidor mapeá-los para o nome de login, por exemplo, com AuthorizedPrincipalsFile."
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "Conecte-se a hosts com certificados SSH de curta duração de um servidor step-ca do Smallstep."
   }
 }

@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "Ümbersuunamise URI",
       "description": "Registreeri see URL lubatud ümbersuunamise URI-na OIDC-provisioneri taga oleva identiteedipakkuja juures."
+    },
+    "requireUsernamePrincipal": {
+      "label": "Nõua, et sertifikaat sisaldaks hosti kasutajatunnust",
+      "description": "Lülita välja, kui teie CA lisab sertifikaati teisi põhimõtteid ja server kaardistab need sisselogimise nimele, näiteks kasutades AuthorizedPrincipalsFile."
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "Ühendu hostidega lühiajaliste SSH-sertifikaatide abil, mis on väljastatud Smallstepi step-ca serverist."
   }
 }

@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "Omdirigerings-URI",
       "description": "Registrer denne URL-en som en tillatt omdirigerings-URI hos identitetsleverandøren bak OIDC-provisioneren."
+    },
+    "requireUsernamePrincipal": {
+      "label": "Krev at vertsbrukernavnet er inkludert i sertifikatet",
+      "description": "Slå av når CA-en din legger til andre prinsipaler i sertifikatet, og serveren kartlegger dem til innloggingsnavnet, for eksempel med AuthorizedPrincipalsFile."
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "Koble til verter med kortvarige SSH-sertifikater fra en smallstep step-ca-server."
   }
 }

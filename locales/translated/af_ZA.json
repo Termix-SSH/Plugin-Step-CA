@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "Herleiding-URI",
       "description": "Registreer hierdie URL as 'n toegestane herleiding-URI by die identiteitsverskaffer agter die OIDC-verskaffer."
+    },
+    "requireUsernamePrincipal": {
+      "label": "Vereis die gasheer-gebruikersnaam in die sertifikaat",
+      "description": "Skakel dit af as jou CA ander beginsels in die sertifikaat plaas en die bediener hulle kaarte na die aanmeldnaam, byvoorbeeld met AuthorizedPrincipalsFile."
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "Maak verbinding met gasheer met kortstondige SSH-sertifikate van 'n smallstep step-ca bediener."
   }
 }

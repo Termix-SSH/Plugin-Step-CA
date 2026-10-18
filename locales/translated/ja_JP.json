@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "リダイレクト URI",
       "description": "この URL を、OIDC プロビジョナーの背後にあるアイデンティティプロバイダーで許可されたリダイレクト URI として登録してください。"
+    },
+    "requireUsernamePrincipal": {
+      "label": "証明書にホストのユーザー名を必須にする",
+      "description": "CA が証明書に他のプリンシパルを含め、サーバーがそれらをログイン名にマッピングする場合（AuthorizedPrincipalsFile などを使用する場合）には、これをオフにしてください。"
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "Smallstep step-ca サーバーから発行された短期間の SSH 証明書を使用してホストに接続します。"
   }
 }

@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "URI pro přesměrování",
       "description": "Zaregistrujte tuto URL adresu jako povolené URI pro přesměrování u poskytovatele identity za OIDC provisionerem."
+    },
+    "requireUsernamePrincipal": {
+      "label": "Požadovat uživatelské jméno hostitele v certifikátu",
+      "description": "Vypněte, pokud váš CA vkládá do certifikátu jiné principály a server je mapuje na přihlašovací jméno, například pomocí AuthorizedPrincipalsFile."
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "Připojte se k hostitelům pomocí krátkodobých SSH certifikátů ze serveru smallstep step-ca."
   }
 }

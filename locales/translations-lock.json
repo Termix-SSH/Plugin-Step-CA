@@ -21,5 +21,8 @@
   "settings.privateEndpoints.description": "cf652b465b64",
   "settings.redirectUri.label": "e2a1c6a4e50f",
   "settings.redirectUri.description": "15d52cc1a6f7",
-  "plugin.name": "e557290f7ac8"
+  "settings.requireUsernamePrincipal.label": "b2594f0809db",
+  "settings.requireUsernamePrincipal.description": "37b7ddcbbc05",
+  "plugin.name": "e557290f7ac8",
+  "plugin.description": "b920cf23eb4d"
 }

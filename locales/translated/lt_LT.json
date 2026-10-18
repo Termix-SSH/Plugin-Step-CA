@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "Perkrovimo URI",
       "description": "Užregistruokite šį URL kaip leistiną perkrovimo URI su tapatybės teikėju, esančiu už OIDC tiekėjo."
+    },
+    "requireUsernamePrincipal": {
+      "label": "Reikalauti, kad sertifikate būtų nurodytas serverio vartotojo vardas",
+      "description": "Išjunkite, jei jūsų CA sertifikate naudoja kitus principalus, o serveris juos atitinka prisijungimo vardui, pavyzdžiui, naudojant AuthorizedPrincipalsFile."
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "Prisijunkite prie serverių naudodami trumpalaikius SSH sertifikatus iš smallstep step-ca serverio."
   }
 }

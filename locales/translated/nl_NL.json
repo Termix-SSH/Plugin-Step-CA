@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "Redirect-URI",
       "description": "Registreer deze URL als toegestane redirect-URI bij de identiteitsprovider achter de OIDC-provisioner."
+    },
+    "requireUsernamePrincipal": {
+      "label": "Vereis de gebruikersnaam van de host in het certificaat",
+      "description": "Schakel dit uit als uw CA andere principals in het certificaat plaatst en de server deze toewijst aan de inlognaam, bijvoorbeeld met AuthorizedPrincipalsFile."
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "Verbind met hosts met kortstondige SSH-certificaten van een smallstep step-ca-server."
   }
 }

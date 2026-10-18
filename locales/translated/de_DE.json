@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "Weiterleitungs-URI",
       "description": "Registrieren Sie diese URL als erlaubten Weiterleitungs-URI beim Identitätsanbieter hinter dem OIDC-Provisioner."
+    },
+    "requireUsernamePrincipal": {
+      "label": "Benutzernamen des Hosts im Zertifikat erforderlich machen",
+      "description": "Deaktivieren Sie diese Option, wenn Ihre CA andere Prinzipalien im Zertifikat speichert und der Server diese auf den Anmeldenamen abbildet, z. B. mit AuthorizedPrincipalsFile."
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "Verbinden Sie sich mit Hosts mithilfe kurzlebiger SSH-Zertifikate von einem Smallstep step-ca-Server."
   }
 }

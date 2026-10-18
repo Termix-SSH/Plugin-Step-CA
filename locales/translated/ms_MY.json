@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "URI Pengalihan",
       "description": "Daftarkan URL ini sebagai URI pengalihan yang dibenarkan dengan penyedia identiti di sebalik penyediaan OIDC."
+    },
+    "requireUsernamePrincipal": {
+      "label": "Wajibkan nama pengguna hos dalam sijil",
+      "description": "Matikan jika CA anda memasukkan prinsipal lain dalam sijil dan pelayan memetakannya kepada nama log masuk, contohnya dengan AuthorizedPrincipalsFile."
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "Sambung ke hos dengan sijil SSH jangka pendek dari pelayan step-ca Smallstep."
   }
 }

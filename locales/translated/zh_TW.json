@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "重新導向 URI",
       "description": "在 OIDC 供應器後方的身分提供者中，將此 URL 註冊為允許的重新導向 URI。"
+    },
+    "requireUsernamePrincipal": {
+      "label": "要求憑證中包含主機使用者名稱",
+      "description": "如果您的憑證授權中心（CA）在憑證中放入其他主體名稱，且伺服器會將這些主體名稱對應至登入名稱（例如使用 AuthorizedPrincipalsFile），請關閉此選項。"
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "使用 smallstep step-ca 伺服器簽發的短期 SSH 憑證連線主機。"
   }
 }

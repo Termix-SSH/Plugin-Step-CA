@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "URI สำหรับเปลี่ยนเส้นทาง",
       "description": "ลงทะเบียน URL นี้เป็น URI สำหรับเปลี่ยนเส้นทางที่อนุญาตกับผู้ให้บริการตัวตนที่อยู่เบื้องหลัง OIDC provisioner"
+    },
+    "requireUsernamePrincipal": {
+      "label": "กำหนดให้ชื่อผู้ใช้ของโฮสต์อยู่ในใบรับรอง",
+      "description": "ปิดใช้งานเมื่อ CA ของคุณใส่ principal อื่นๆ ไว้ในใบรับรอง และเซิร์ฟเวอร์แมปไปยังชื่อผู้ใช้ เช่น ผ่าน AuthorizedPrincipalsFile"
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "เชื่อมต่อกับโฮสต์โดยใช้ใบรับรอง SSH อายุสั้นจากเซิร์ฟเวอร์ smallstep step-ca"
   }
 }

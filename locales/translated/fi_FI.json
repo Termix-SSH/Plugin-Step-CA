@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "Uudelleenohjaus-URI",
       "description": "Rekisteröi tämä URL sallittuna uudelleenohjaus-URI:nä OIDC-provisionerin takana olevan identiteettitoimittajan kanssa."
+    },
+    "requireUsernamePrincipal": {
+      "label": "Vaadi isäntäkäyttäjänimi sertifikaattiin",
+      "description": "Kytke pois päältä, jos CA-sertifikaattisi sisältää muita päämääriä ja palvelin kartoittaa ne kirjautumisnimeksi, esimerkiksi AuthorizedPrincipalsFile:n avulla."
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "Yhdistä isäntiin lyhytaikaisilla SSH-varmenteilla, jotka on luotu Smallstepin step-ca-palvelimelta."
   }
 }

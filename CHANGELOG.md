@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.2
+
+### Added
+
+- Require the host username in the certificate, an admin setting that is on by default. Turn it off for a CA that puts other principals in the certificate and lets the server map them
+
+### Changed
+
+- The plugin name and description show in your language
+
 ## 1.0.1
 
 ### Changed

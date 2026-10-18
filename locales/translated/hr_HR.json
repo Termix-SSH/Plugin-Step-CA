@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "URI za preusmjeravanje",
       "description": "Registrirajte ovaj URL kao dopušteni URI za preusmjeravanje kod davatelja identiteta iza OIDC pružatelja."
+    },
+    "requireUsernamePrincipal": {
+      "label": "Zahtijevaj korisničko ime hosta u certifikatu",
+      "description": "Isključite kada vaša CA stavlja druge principe u certifikat, a poslužitelj ih preslikava na prijavno ime, na primjer pomoću AuthorizedPrincipalsFile."
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "Povežite se s hostovima pomoću kratkotrajnih SSH certifikata s smallstep step-ca poslužitelja."
   }
 }

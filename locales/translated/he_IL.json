@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "כתובת URI להפניה",
       "description": "רשום את כתובת ה-URL הזו ככתובת URI להפניה מותרת אצל ספק הזהות שמאחורי מספק ה-OIDC."
+    },
+    "requireUsernamePrincipal": {
+      "label": "דרוש את שם המשתמש של המארח בתעודה",
+      "description": "כבה כאשר ה-CA שלך מציב עקרונות אחרים בתעודה והשרת ממפה אותם לשם ההתחברות, למשל באמצעות AuthorizedPrincipalsFile."
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "התחבר למארחים באמצעות תעודות SSH לטווח קצר משרת step-ca של smallstep."
   }
 }

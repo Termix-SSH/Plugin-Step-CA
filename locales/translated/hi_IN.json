@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "रीडायरेक्ट URI",
       "description": "OIDC प्रोविज़नर के पीछे के आइडेंटिटी प्रोवाइडर के साथ इस URL को एक अनुमत रीडायरेक्ट URI के रूप में पंजीकृत करें।"
+    },
+    "requireUsernamePrincipal": {
+      "label": "सर्टिफिकेट में होस्ट उपयोगकर्ता नाम आवश्यक करें",
+      "description": "अपने CA सर्टिफिकेट में अन्य प्रिंसिपल्स डालता है और सर्वर उन्हें लॉगिन नाम से मैप करता है (जैसे AuthorizedPrincipalsFile के साथ) तो इसे बंद करें।"
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "Smallstep step-ca सर्वर से अल्पकालिक SSH सर्टिफिकेट का उपयोग करके होस्ट से कनेक्ट करें।"
   }
 }

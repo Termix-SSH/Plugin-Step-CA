@@ -39,9 +39,14 @@
     "redirectUri": {
       "label": "리디렉션 URI",
       "description": "이 URL을 OIDC 프로비저너 뒤의 아이디 제공자에서 허용된 리디렉션 URI로 등록하세요."
+    },
+    "requireUsernamePrincipal": {
+      "label": "인증서에 호스트 사용자 이름 요구",
+      "description": "CA가 인증서에 다른 principal을 포함하고 서버가 이를 로그인 이름으로 매핑하는 경우(예: AuthorizedPrincipalsFile 사용)에 비활성화하세요."
     }
   },
   "plugin": {
-    "name": "Step CA"
+    "name": "Step CA",
+    "description": "Smallstep step-ca 서버에서 발급된 단명 SSH 인증서를 사용하여 호스트에 연결합니다."
   }
 }
