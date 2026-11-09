@@ -48,5 +48,13 @@
   "plugin": {
     "name": "Step CA",
     "description": "Smallstep step-ca 서버에서 발급된 단명 SSH 인증서를 사용하여 호스트에 연결합니다."
+  },
+  "resultPage": {
+    "signedIn": "로그인 성공",
+    "failed": "로그인 실패",
+    "closing": "이 창을 닫고 Termix로 돌아가세요.",
+    "tryAgain": "이 창을 닫고 Termix에서 다시 시도하세요.",
+    "close": "창 닫기",
+    "requestId": "요청 ID: {{id}}"
   }
 }

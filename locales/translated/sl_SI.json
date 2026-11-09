@@ -48,5 +48,13 @@
   "plugin": {
     "name": "Step CA",
     "description": "Povežite se z gostitelji z kratkotrajnimi SSH certifikati s strežnika step-ca od Smallstep."
+  },
+  "resultPage": {
+    "signedIn": "Prijava uspešna",
+    "failed": "Prijava ni uspela",
+    "closing": "To okno lahko zaprete in se vrnete v Termix.",
+    "tryAgain": "Zaprite to okno in poskusite znova iz Termixa.",
+    "close": "Zapri okno",
+    "requestId": "ID zahteve: {{id}}"
   }
 }

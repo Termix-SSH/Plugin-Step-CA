@@ -48,5 +48,13 @@
   "plugin": {
     "name": "Step CA",
     "description": "Kết nối đến các host bằng chứng chỉ SSH thời gian ngắn từ máy chủ step-ca của Smallstep."
+  },
+  "resultPage": {
+    "signedIn": "Đã đăng nhập",
+    "failed": "Đăng nhập thất bại",
+    "closing": "Bạn có thể đóng cửa sổ này và quay lại Termix.",
+    "tryAgain": "Đóng cửa sổ này và thử lại từ Termix.",
+    "close": "Đóng cửa sổ",
+    "requestId": "ID yêu cầu: {{id}}"
   }
 }

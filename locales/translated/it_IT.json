@@ -48,5 +48,13 @@
   "plugin": {
     "name": "Step CA",
     "description": "Connettiti agli host con certificati SSH a breve durata da un server step-ca di Smallstep."
+  },
+  "resultPage": {
+    "signedIn": "Accesso effettuato",
+    "failed": "Accesso non riuscito",
+    "closing": "Puoi chiudere questa finestra e tornare a Termix.",
+    "tryAgain": "Chiudi questa finestra e riprova da Termix.",
+    "close": "Chiudi finestra",
+    "requestId": "ID richiesta: {{id}}"
   }
 }

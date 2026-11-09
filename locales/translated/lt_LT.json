@@ -48,5 +48,13 @@
   "plugin": {
     "name": "Step CA",
     "description": "Prisijunkite prie serverių naudodami trumpalaikius SSH sertifikatus iš smallstep step-ca serverio."
+  },
+  "resultPage": {
+    "signedIn": "Prisijungta",
+    "failed": "Prisijungimas nepavyko",
+    "closing": "Galite uždaryti šį langą ir grįžti į Termix.",
+    "tryAgain": "Uždarykite šį langą ir pabandykite dar kartą iš Termix.",
+    "close": "Uždaryti langą",
+    "requestId": "Užklausos ID: {{id}}"
   }
 }

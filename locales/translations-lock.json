@@ -24,5 +24,11 @@
   "settings.requireUsernamePrincipal.label": "b2594f0809db",
   "settings.requireUsernamePrincipal.description": "37b7ddcbbc05",
   "plugin.name": "e557290f7ac8",
-  "plugin.description": "b920cf23eb4d"
+  "plugin.description": "b920cf23eb4d",
+  "resultPage.signedIn": "1b6c524ffb71",
+  "resultPage.failed": "108b931431b9",
+  "resultPage.closing": "3bd669f590a2",
+  "resultPage.tryAgain": "1e2ae230c483",
+  "resultPage.close": "e3896a930398",
+  "resultPage.requestId": "de9cd8b45ac4"
 }

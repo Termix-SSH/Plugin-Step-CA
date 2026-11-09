@@ -48,5 +48,13 @@
   "plugin": {
     "name": "Step CA",
     "description": "الاتصال بالمضيفين باستخدام شهادات SSH قصيرة الأجل من خادم step-ca الخاص بـ Smallstep."
+  },
+  "resultPage": {
+    "signedIn": "تم تسجيل الدخول",
+    "failed": "فشل تسجيل الدخول",
+    "closing": "يمكنك إغلاق هذه النافذة والعودة إلى Termix.",
+    "tryAgain": "أغلق هذه النافذة وحاول مرة أخرى من Termix.",
+    "close": "إغلاق النافذة",
+    "requestId": "معرف الطلب: {{id}}"
   }
 }

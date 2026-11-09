@@ -48,5 +48,13 @@
   "plugin": {
     "name": "Step CA",
     "description": "Csatlakozz hoszthoz rövid élettartamú SSH tanúsítványokkal egy smallstep step-ca szerverről."
+  },
+  "resultPage": {
+    "signedIn": "Bejelentkezve",
+    "failed": "A bejelentkezés sikertelen",
+    "closing": "Bezárhatja ezt az ablakot, és visszatérhet a Termixhez.",
+    "tryAgain": "Zárja be ezt az ablakot, és próbálja újra a Termixben.",
+    "close": "Ablak bezárása",
+    "requestId": "Kérés azonosítója: {{id}}"
   }
 }

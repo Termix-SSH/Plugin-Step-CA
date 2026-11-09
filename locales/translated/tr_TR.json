@@ -48,5 +48,13 @@
   "plugin": {
     "name": "Step CA",
     "description": "Küçük bir Smallstep step-ca sunucusundan kısa ömürlü SSH sertifikaları kullanarak ana bilgisayarlara bağlanın."
+  },
+  "resultPage": {
+    "signedIn": "Giriş başarılı",
+    "failed": "Giriş başarısız",
+    "closing": "Bu pencereyi kapatabilir ve Termix'e dönebilirsiniz.",
+    "tryAgain": "Bu pencereyi kapatın ve Termix'ten tekrar deneyin.",
+    "close": "Pencereyi kapat",
+    "requestId": "İstek Kimliği: {{id}}"
   }
 }

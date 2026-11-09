@@ -1,5 +1,6 @@
 import crypto from "node:crypto";
 import { describe, expect, it } from "vitest";
+import { publicKeyFromPrivate } from "@termix-ssh/plugin-sdk/ssh-keys";
 import {
   buildAuthorizationUrl,
   certificateFingerprint,
@@ -51,6 +52,13 @@ describe("step-ca client helpers", () => {
     expect(url.searchParams.get("response_type")).toBe("code");
     expect(url.searchParams.get("code_challenge_method")).toBe("S256");
     expect(url.searchParams.get("scope")).toContain("openid");
+  });
+
+  it("always gives a key that reads back", () => {
+    for (let i = 0; i < 1500; i += 1) {
+      const { privateKeyPem } = generateSshKeyPair();
+      expect(publicKeyFromPrivate(privateKeyPem)).not.toBeNull();
+    }
   });
 
   it("generates an ed25519 key a CA can certify, and reads the cert back", () => {

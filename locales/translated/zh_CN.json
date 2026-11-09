@@ -48,5 +48,13 @@
   "plugin": {
     "name": "Step CA",
     "description": "使用 smallstep step-ca 服务器签发的短期 SSH 证书连接主机。"
+  },
+  "resultPage": {
+    "signedIn": "已登录",
+    "failed": "登录失败",
+    "closing": "您可以关闭此窗口并返回 Termix。",
+    "tryAgain": "关闭此窗口，然后在 Termix 中重试。",
+    "close": "关闭窗口",
+    "requestId": "请求 ID：{{id}}"
   }
 }

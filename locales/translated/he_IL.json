@@ -48,5 +48,13 @@
   "plugin": {
     "name": "Step CA",
     "description": "התחבר למארחים באמצעות תעודות SSH לטווח קצר משרת step-ca של smallstep."
+  },
+  "resultPage": {
+    "signedIn": "התחברות בוצעה",
+    "failed": "התחברות נכשלה",
+    "closing": "אתה יכול לסגור חלון זה ולחזור ל-Termix.",
+    "tryAgain": "סגור חלון זה ונסה שוב מ-Termix.",
+    "close": "סגור חלון",
+    "requestId": "מזהה בקשה: {{id}}"
   }
 }

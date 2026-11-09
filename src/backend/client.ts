@@ -1,8 +1,6 @@
 import crypto from "node:crypto";
-import ssh2Pkg from "ssh2";
+import { generateSshKeyPair as makeSshKeyPair } from "@termix-ssh/plugin-sdk/ssh-keys";
 import type { PluginFetch } from "@termix-ssh/plugin-sdk/backend";
-
-const { utils: ssh2Utils } = ssh2Pkg;
 
 /**
  * A minimal client for smallstep's step-ca SSH user-certificate flow, done
@@ -256,9 +254,9 @@ export function generateSshKeyPair(): {
   publicKeyLine: string;
   privateKeyPem: string;
 } {
-  const pair = ssh2Utils.generateKeyPairSync("ed25519");
-  const [type, blob] = pair.public.trim().split(/\s+/);
-  return { publicKeyLine: `${type} ${blob}`, privateKeyPem: pair.private };
+  const pair = makeSshKeyPair("ssh-ed25519");
+  const [type, blob] = pair.publicKey.split(/\s+/);
+  return { publicKeyLine: `${type} ${blob}`, privateKeyPem: pair.privateKey };
 }
 
 export async function signSshCertificate(

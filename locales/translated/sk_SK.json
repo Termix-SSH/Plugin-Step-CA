@@ -48,5 +48,13 @@
   "plugin": {
     "name": "Step CA",
     "description": "Pripájajte sa k hostiteľom pomocou krátkodobo platných SSH certifikátov zo servera smallstep step-ca."
+  },
+  "resultPage": {
+    "signedIn": "Prihlásenie úspešné",
+    "failed": "Prihlásenie zlyhalo",
+    "closing": "Toto okno môžete zatvoriť a vrátiť sa späť do Termixu.",
+    "tryAgain": "Zatvorte toto okno a skúste to znova z Termixu.",
+    "close": "Zatvoriť okno",
+    "requestId": "ID žiadosti: {{id}}"
   }
 }

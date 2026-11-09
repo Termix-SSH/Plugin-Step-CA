@@ -48,5 +48,13 @@
   "plugin": {
     "name": "Step CA",
     "description": "Anslut till värdar med kortlivade SSH-certifikat från en smallstep step-ca-server."
+  },
+  "resultPage": {
+    "signedIn": "Inloggad",
+    "failed": "Inloggningen misslyckades",
+    "closing": "Du kan stänga detta fönster och gå tillbaka till Termix.",
+    "tryAgain": "Stäng detta fönster och försök igen från Termix.",
+    "close": "Stäng fönstret",
+    "requestId": "Begäran-ID: {{id}}"
   }
 }

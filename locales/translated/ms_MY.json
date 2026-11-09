@@ -48,5 +48,13 @@
   "plugin": {
     "name": "Step CA",
     "description": "Sambung ke hos dengan sijil SSH jangka pendek dari pelayan step-ca Smallstep."
+  },
+  "resultPage": {
+    "signedIn": "Telah log masuk",
+    "failed": "Log masuk gagal",
+    "closing": "Anda boleh menutup tetingkap ini dan kembali ke Termix.",
+    "tryAgain": "Tutup tetingkap ini dan cuba lagi dari Termix.",
+    "close": "Tutup tetingkap",
+    "requestId": "ID Permintaan: {{id}}"
   }
 }

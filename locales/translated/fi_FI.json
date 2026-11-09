@@ -48,5 +48,13 @@
   "plugin": {
     "name": "Step CA",
     "description": "Yhdistä isäntiin lyhytaikaisilla SSH-varmenteilla, jotka on luotu Smallstepin step-ca-palvelimelta."
+  },
+  "resultPage": {
+    "signedIn": "Kirjautuminen onnistui",
+    "failed": "Kirjautuminen epäonnistui",
+    "closing": "Voit sulkea tämän ikkunan ja palata Termixiin.",
+    "tryAgain": "Sulje tämä ikkuna ja yritä uudelleen Termixissä.",
+    "close": "Sulje ikkuna",
+    "requestId": "Pyyntö-ID: {{id}}"
   }
 }

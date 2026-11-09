@@ -48,5 +48,13 @@
   "plugin": {
     "name": "Step CA",
     "description": "Conectați-vă la gazde cu certificate SSH cu durată de viață scurtă de la un server step-ca Smallstep."
+  },
+  "resultPage": {
+    "signedIn": "Autentificare reușită",
+    "failed": "Autentificare eșuată",
+    "closing": "Puteți închide această fereastră și să reveniți la Termix.",
+    "tryAgain": "Închideți această fereastră și încercați din nou din Termix.",
+    "close": "Închide fereastra",
+    "requestId": "ID cerere: {{id}}"
   }
 }
