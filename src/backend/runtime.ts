@@ -1,4 +1,3 @@
-import { createClient } from "redis";
 import type { PluginContext } from "@termix-ssh/plugin-sdk/backend";
 
 export interface CallbackQuery {
@@ -13,40 +12,50 @@ export interface CallbackResult {
   message: string;
 }
 
-const SESSION_TTL_SECONDS = 5 * 60;
-const RESULT_TTL_SECONDS = 60;
-const CONNECT_RETRY_MS = 15_000;
+const SESSION_TTL_MS = 5 * 60 * 1000;
+const RESULT_TTL_MS = 60 * 1000;
+const PREFIX = "handoff:";
 
 export type Runtime = ReturnType<typeof createRuntime>;
 
+interface Entry {
+  expires: number;
+  /** Sealed JSON, absent on a route marker. */
+  sealed?: string;
+}
+
 /**
- * Hands an identity provider callback to the Termix instance that started
- * the sign-in, through Redis when REDIS_URL is set. With one instance, or no
- * Redis, every call is a no-op and the callback is handled locally.
+ * Hands an identity provider callback to the Termix server that started the
+ * sign-in. Servers behind one load balancer share a database, so the
+ * handoff goes through ctx.kv. With one server nothing is ever handed off.
  */
 export function createRuntime(ctx: PluginContext) {
-  const prefix =
-    process.env.TERMIX_STEP_CA_REDIS_PREFIX?.trim() || "termix:step-ca";
-  let client: ReturnType<typeof createClient> | null = null;
-  let connecting: Promise<boolean> | null = null;
-  let nextConnectAttempt = 0;
-
-  const routeKey = (state: string) => `${prefix}:route:${state}`;
-  const commandKey = (state: string) => `${prefix}:command:${state}`;
-  const resultKey = (state: string) => `${prefix}:result:${state}`;
+  const routeKey = (state: string) => `${PREFIX}route:${state}`;
+  const commandKey = (state: string) => `${PREFIX}command:${state}`;
+  const resultKey = (state: string) => `${PREFIX}result:${state}`;
 
   function logFailure(operation: string, error: unknown): void {
     ctx.log.warn(
-      `Step CA Redis runtime unavailable (${operation}): ${error instanceof Error ? error.message : String(error)}`,
+      `Step CA sign-in handoff failed (${operation}): ${error instanceof Error ? error.message : String(error)}`,
     );
   }
 
-  async function seal(value: unknown): Promise<string> {
-    return ctx.secrets.seal(JSON.stringify(value));
+  async function read(key: string): Promise<Entry | null> {
+    const value = (await ctx.kv.get(key)) as Entry | null;
+    if (!value || typeof value !== "object") return null;
+    if (typeof value.expires !== "number" || value.expires < Date.now()) {
+      await ctx.kv.delete(key);
+      return null;
+    }
+    return value;
   }
 
-  async function unseal<T>(raw: string): Promise<T | null> {
-    const plain = await ctx.secrets.unseal(raw);
+  /** Reads and removes a value; only the caller whose delete worked gets it. */
+  async function take<T>(key: string): Promise<T | null> {
+    const entry = await read(key);
+    if (!entry?.sealed) return null;
+    if (!(await ctx.kv.delete(key))) return null;
+    const plain = await ctx.secrets.unseal(entry.sealed);
     if (!plain) return null;
     try {
       return JSON.parse(plain) as T;
@@ -55,55 +64,44 @@ export function createRuntime(ctx: PluginContext) {
     }
   }
 
-  async function connect(url: string): Promise<boolean> {
-    try {
-      client = createClient({
-        url,
-        socket: { connectTimeout: 1500, reconnectStrategy: false },
-      });
-      client.on("error", (error) => logFailure("client", error));
-      await client.connect();
-      nextConnectAttempt = 0;
-      return true;
-    } catch (error) {
-      nextConnectAttempt = Date.now() + CONNECT_RETRY_MS;
-      logFailure("connect", error);
-      await client?.disconnect().catch(() => {});
-      client = null;
-      return false;
-    }
+  async function put(key: string, value: unknown, ttl: number): Promise<void> {
+    await ctx.kv.set(key, {
+      expires: Date.now() + ttl,
+      sealed: await ctx.secrets.seal(JSON.stringify(value)),
+    } satisfies Entry);
   }
 
-  async function ready(): Promise<boolean> {
-    const url = process.env.REDIS_URL?.trim();
-    if (!url) return false;
-    if (client?.isReady) return true;
-    if (Date.now() < nextConnectAttempt) return false;
-    if (connecting) return connecting;
-    connecting = connect(url).finally(() => {
-      connecting = null;
-    });
-    return connecting;
+  /** Drops handoff entries a crashed server left behind. */
+  async function sweep(): Promise<void> {
+    const now = Date.now();
+    for (const key of await ctx.kv.list()) {
+      if (!key.startsWith(PREFIX)) continue;
+      const value = (await ctx.kv.get(key)) as Entry | null;
+      if (!value || typeof value.expires !== "number" || value.expires < now) {
+        await ctx.kv.delete(key);
+      }
+    }
   }
 
   return {
     async register(state: string): Promise<void> {
-      if (!(await ready()) || !client) return;
-      await client
-        .set(routeKey(state), "active", { EX: SESSION_TTL_SECONDS })
-        .catch((error) => logFailure("register", error));
+      try {
+        await sweep();
+        await ctx.kv.set(routeKey(state), {
+          expires: Date.now() + SESSION_TTL_MS,
+        } satisfies Entry);
+      } catch (error) {
+        logFailure("register", error);
+      }
     },
 
-    /** Queues a callback for the instance that owns the sign-in. */
+    /** Queues a callback for the server that owns the sign-in. */
     async submit(state: string, query: CallbackQuery): Promise<boolean> {
-      if (!(await ready()) || !client) return false;
       try {
-        if (!(await client.exists(routeKey(state)))) return false;
-        const stored = await client.set(commandKey(state), await seal(query), {
-          EX: SESSION_TTL_SECONDS,
-          NX: true,
-        });
-        return stored === "OK";
+        if (!(await read(routeKey(state)))) return false;
+        if (await read(commandKey(state))) return false;
+        await put(commandKey(state), query, SESSION_TTL_MS);
+        return true;
       } catch (error) {
         logFailure("submit", error);
         return false;
@@ -111,10 +109,8 @@ export function createRuntime(ctx: PluginContext) {
     },
 
     async takeCommand(state: string): Promise<CallbackQuery | null> {
-      if (!(await ready()) || !client) return null;
       try {
-        const raw = await client.getDel(commandKey(state));
-        return raw ? unseal<CallbackQuery>(raw.toString()) : null;
+        return await take<CallbackQuery>(commandKey(state));
       } catch (error) {
         logFailure("take_command", error);
         return null;
@@ -122,26 +118,18 @@ export function createRuntime(ctx: PluginContext) {
     },
 
     async complete(state: string, result: CallbackResult): Promise<void> {
-      if (!(await ready()) || !client) return;
       try {
-        await client
-          .multi()
-          .set(resultKey(state), await seal(result), {
-            EX: RESULT_TTL_SECONDS,
-          })
-          .del(routeKey(state))
-          .del(commandKey(state))
-          .exec();
+        await put(resultKey(state), result, RESULT_TTL_MS);
+        await ctx.kv.delete(routeKey(state));
+        await ctx.kv.delete(commandKey(state));
       } catch (error) {
         logFailure("complete", error);
       }
     },
 
     async takeResult(state: string): Promise<CallbackResult | null> {
-      if (!(await ready()) || !client) return null;
       try {
-        const raw = await client.getDel(resultKey(state));
-        return raw ? unseal<CallbackResult>(raw.toString()) : null;
+        return await take<CallbackResult>(resultKey(state));
       } catch (error) {
         logFailure("take_result", error);
         return null;
@@ -149,16 +137,17 @@ export function createRuntime(ctx: PluginContext) {
     },
 
     async remove(state: string): Promise<void> {
-      if (!(await ready()) || !client) return;
-      await client
-        .del([routeKey(state), commandKey(state), resultKey(state)])
-        .catch((error) => logFailure("remove", error));
+      for (const key of [
+        routeKey(state),
+        commandKey(state),
+        resultKey(state),
+      ]) {
+        await ctx.kv.delete(key).catch((error) => logFailure("remove", error));
+      }
     },
 
     async close(): Promise<void> {
-      const current = client;
-      client = null;
-      if (current?.isOpen) await current.quit().catch(() => {});
+      // Nothing held open.
     },
   };
 }

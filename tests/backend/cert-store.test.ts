@@ -9,6 +9,7 @@ async function store() {
   db.sqlite.prepare("INSERT OR IGNORE INTO users (id) VALUES (?)").run("u");
   db.sqlite.prepare("INSERT OR IGNORE INTO ssh_data (id) VALUES (?)").run(1);
   const mock = createMockCtx({
+    sandbox: true,
     pluginId: manifest.id,
     manifest,
     capabilities: manifest.capabilities,

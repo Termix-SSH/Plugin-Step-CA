@@ -1,7 +1,7 @@
 {
   "id": "step-ca",
   "name": "Step CA",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Connect to hosts with short-lived SSH certificates from a smallstep step-ca server.",
   "author": {
     "name": "Termix"
@@ -18,20 +18,9 @@
     "Certificates are kept until they expire",
     "No step binary needed"
   ],
-  "env": [
-    {
-      "name": "REDIS_URL",
-      "description": "Redis that several Termix servers share for sign in state. Not needed with one server."
-    },
-    {
-      "name": "TERMIX_STEP_CA_REDIS_PREFIX",
-      "description": "Prefix for the keys it writes in Redis.",
-      "default": "termix:step-ca"
-    }
-  ],
   "engine": {
-    "termix": ">=26.11.1-0",
-    "api": "^1.16"
+    "termix": ">=26.11.2-0",
+    "api": "^2.0.0"
   },
   "capabilities": [
     "db:own",
@@ -39,7 +28,8 @@
     "network:outbound",
     "network:serve",
     "auth:provide",
-    "ui:surface"
+    "ui:surface",
+    "kv:own"
   ],
   "contributes": {
     "auth": {
