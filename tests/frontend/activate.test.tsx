@@ -81,7 +81,29 @@ describe("StepCaOverlay", () => {
     expect(props.fail).toHaveBeenCalledWith("errors.authFailed");
   });
 
-  it("opens the identity provider, waits, and reconnects once signed in", () => {
+  it("waits for the reconnect details when they come from another frame", async () => {
+    const { props, emit } = setup();
+    props.connectPayload.mockReturnValue(
+      Promise.resolve({ hostId: 7, hostConfig: { username: "me" } }) as never,
+    );
+    emit({ type: "stepca_completed", hostId: 7, requestId: "req-9" });
+    await vi.waitFor(() =>
+      expect(props.send).toHaveBeenCalledWith("stepca_auth_completed", {
+        hostId: 7,
+        hostConfig: { username: "me" },
+      }),
+    );
+  });
+
+  it("skips a message the terminal replays after a resubscribe", () => {
+    const { props, emit } = setup();
+    emit({ type: "stepca_auth_required", hostId: 7, seq: 1 });
+    emit({ type: "stepca_auth_required", hostId: 7, seq: 1 });
+    expect(props.send).toHaveBeenCalledTimes(1);
+    expect(props.fail).not.toHaveBeenCalled();
+  });
+
+  it("opens the identity provider, waits, and reconnects once signed in", async () => {
     const open = vi.spyOn(window, "open").mockReturnValue(null);
     const { props, emit } = setup();
     emit({ type: "stepca_auth_required", hostId: 7 });
@@ -100,11 +122,13 @@ describe("StepCaOverlay", () => {
     expect(screen.getByText("dialog.waiting")).toBeTruthy();
 
     emit({ type: "stepca_completed", requestId: "req-1" });
-    expect(props.send).toHaveBeenCalledWith("stepca_auth_completed", {
-      hostId: 7,
-      cols: 80,
-      rows: 24,
-    });
+    await vi.waitFor(() =>
+      expect(props.send).toHaveBeenCalledWith("stepca_auth_completed", {
+        hostId: 7,
+        cols: 80,
+        rows: 24,
+      }),
+    );
     expect(screen.queryByText("dialog.title")).toBeNull();
     open.mockRestore();
   });

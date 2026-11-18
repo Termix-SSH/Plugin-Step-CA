@@ -99,6 +99,7 @@ describe("activate", () => {
     "fails closed without %s",
     async (capability) => {
       const mock = createMockCtx({
+        sandbox: true,
         pluginId: manifest.id,
         manifest,
         capabilities: manifest.capabilities.filter((c) => c !== capability),

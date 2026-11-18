@@ -6,14 +6,16 @@ import { StepCaDialog, type SignInStage } from "./StepCaDialog";
 export interface TerminalOverlayProps {
   host: { id: number | string; [key: string]: unknown } | undefined;
   backgroundColor?: string;
+  // In a frame this call crosses to the shell, so it answers with a Promise.
   subscribe: (
     listener: (message: { type: string; [key: string]: unknown }) => void,
-  ) => () => void;
+  ) => (() => void) | Promise<() => void>;
   holdConnectTimeout: (held: boolean) => void;
   fail: (message: string) => void;
   disconnect: () => void;
   send: (type: string, data?: unknown) => void;
-  connectPayload: () => Record<string, unknown>;
+  connectPayload: () =>
+    Record<string, unknown> | Promise<Record<string, unknown>>;
 }
 
 interface DialogState {
@@ -46,6 +48,8 @@ export function StepCaOverlay({
   const heldRef = useRef(false);
   // A second "auth required" after a sign-in means the certificate did not work.
   const failedRef = useRef(false);
+  // The terminal replays what a late overlay missed, so skip repeats.
+  const seenSeqRef = useRef(0);
 
   useEffect(() => {
     const clearTimer = () => {
@@ -71,7 +75,11 @@ export function StepCaOverlay({
       );
     };
 
-    const unsubscribe = subscribe((message) => {
+    const subscribed = subscribe((message) => {
+      if (typeof message.seq === "number") {
+        if (message.seq <= seenSeqRef.current) return;
+        seenSeqRef.current = message.seq;
+      }
       switch (message.type) {
         case "stepca_auth_required":
           hold(true);
@@ -110,7 +118,10 @@ export function StepCaOverlay({
         case "stepca_completed":
           clearTimer();
           setDialog(null);
-          send("stepca_auth_completed", connectPayload());
+          // In a frame this call crosses to the terminal and answers later.
+          void Promise.resolve(connectPayload()).then((payload) =>
+            send("stepca_auth_completed", payload),
+          );
           break;
         case "stepca_error":
           failedRef.current = true;
@@ -137,7 +148,11 @@ export function StepCaOverlay({
     });
 
     return () => {
-      unsubscribe();
+      void Promise.resolve(subscribed)
+        .then((unsubscribe) => {
+          if (typeof unsubscribe === "function") unsubscribe();
+        })
+        .catch(() => {});
       clearTimer();
       if (heldRef.current) {
         heldRef.current = false;
